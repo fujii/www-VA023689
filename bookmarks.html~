@@ -52,6 +52,7 @@
 <a href="http://japan.internet.com/">japan.internet.com</a>
 <a href="http://pcweb.mycom.co.jp/">PCWEB</a>
 <a href="http://www-6.ibm.com/jp/developerworks/">IBM dW</a>
+<a href=""></a>
 <br>
 
 <!--
@@ -60,6 +61,7 @@
 
 <strong>News</strong>
 <a href="http://slashdot.org/">slashdot</a>
+<a href="http://newsforge.com/">NewsForge</a>
 <a href="http://news.com.com/">CNET News.com</a>
 <a href="http://www.osnews.com/">OSnews</a>
 <a href="http://www.japantimes.co.jp/">JapanTimes</a>
@@ -72,12 +74,14 @@
 <a href="http://www.yomiuri.co.jp/">読売新聞</a>
 <a href="http://www.mainichi.co.jp/">毎日新聞</a>
 <a href="http://www.nikkei.co.jp/">日本経済新聞</a>
+<a href=""></a>
 <br>
 
 <strong>日記</strong>
 <a href="http://www.asahi-net.or.jp/~Ki4S-nkmr/">中村 正三郎さん</a>
 <a href="http://namazu.org/~satoru/diary/">高林 哲さん</a>
 <a href="http://www.nais.to/~yto/clog/">山下達夫さん</a>
+<a href=""></a>
 <br>
 
 <strong>アンテナ</strong>
@@ -98,6 +102,7 @@
 <a href="http://japan.infoseek.com/">infoseek</a>
 <a href="http://www.excite.co.jp/">excite</a>
 <a href="http://www.isize.com/">isize</a>
+<a href=""></a>
 <br>
 
 <strong>Directory</strong>
@@ -106,6 +111,7 @@
 <a href="http://allabout.co.jp/">All About Japan</a>
 <a href="http://www.google.com/dirhp">google dir</a>
 <a href="http://www.yahoo.com/">Yahoo! USA</a>
+<a href=""></a>
 <br>
 
 
@@ -120,6 +126,7 @@
 <a href="http://freshmeat.net/">freshmeat.net</a>
 <a href="http://lss.eternity.ne.jp/"> Linux Software Search</a>
 <a href="http://www.ut-info.com/linux-soft/">ペンギンの杜</a>
+<a href=""></a>
 <br>
 
 <strong>OpenSource</strong>
@@ -139,6 +146,7 @@
 <a href="http://www.penguindossiers.com/">penguindossiers</a>
 <a href="http://www.ne.jp/asahi/yasunao/picard/novel/novel.htm">PBを読もう</a>
 <a href="http://www2m.biglobe.ne.jp/~okiraku-/">お気楽</a>
+<a href=""></a>
 <br>
 
 <strong>Linux</strong>
@@ -147,6 +155,7 @@
 <a href="http://www.linux.or.jp/JF/">JF</a>
 <a href="http://www.jp.debian.org/">Debian</a>
 <a href="http://www.debian.or.jp/">Debian JP</a>
+<a href="http://debian.fam.cx/">debian.fam.cx</a>
 <a href="http://vinelinux.org/">Vine Linux</a>
 <a href="http://www.idg.co.jp/lw/">Linux World</a>
 <a href="http://www.zdnet.co.jp/help/tips/linux/">Tips for Linux</a>
@@ -158,6 +167,7 @@
 <a href="http://itp.ne.jp/">タウンページ</a>
 <a href="http://www.2ch.net/2ch.html">2ちゃんねる</a>
 <a href="http://www.cgihost.com/cgi-bin/env.cgi">env.cgi</a>
+<a href=""></a>
 <br>
 
 <strong>NetNews</strong>
@@ -174,6 +184,7 @@
 <a href="http://www.j-bus.co.jp/">発車オーライネット</a>
 <a href="http://ekikara.jp/">駅から時刻表</a>
 <a href="http://www.mytrip.net/">旅の窓口</a>
+<a href=""></a>
 <br>
 
 <!--
@@ -183,6 +194,7 @@
 <strong>GNU</strong>
 <a href="http://www.gnu.org/home.html">GNU</a>
 <a href="http://www.gnu.org/brave-gnu-world/">Brave GNU World</a>
+<a href=""></a>
 <br>
 
 <strong>電子辞書</strong>
@@ -194,6 +206,7 @@
 <a href="http://plaza3.mbn.or.jp/~h_ishida/">EBシリーズ</a>
 <a href="http://www.popjisyo.com/">POP辞書</a>
 <a href="http://ebsnap.lkj.jp/">ebsnap</a>
+<a href=""></a>
 <br>
 
 <strong>online辞書</strong>
@@ -202,6 +215,7 @@
 <a href="http://www.e-words.ne.jp/">情報・通信事典 e-Words</a>
 <a href="http://www.tulips.tsukuba.ac.jp/misc/export/cat/kanparts/">部品で漢字を検索
 <a href="http://www.britannica.co.jp/search/home">britannica.co.jp</a>
+<a href=""></a>
 <br>
 
 
@@ -210,11 +224,13 @@
 <a href="misc/dict.html">電子辞典リンク</a>
 <a href="http://www.fujii-hironori.blogspot.com/">blogspot</a>
 <a href="http://www.blogger.com/">blogger.com</a>
+<a href=""></a>
 <br>
 
 <strong>software</strong>
 <a href="http://www.gohome.org/wl/index.ja.html">Wanderlust</a>
 <a href="http://emacs-w3m.namazu.org/index-ja.html">emacs-w3m</a>
+<a href=""></a>
 <br>
 
 <strong>Emacs</strong>
@@ -222,12 +238,14 @@
 <a href="http://www.anc.ed.ac.uk/~stephen/emacs/ell.html">Emacs Lisp List</a>
 <a href="http://www.kusastro.kyoto-u.ac.jp/~baba/dic/free-dic.html">フリーの漢字変換辞書</a>
 <a href="http://www.remus.dti.ne.jp/~endo-h/wnn/">FreeWnnを賢くする</a>
+<a href=""></a>
 <br>
 
 <strong>vi</strong>
 <a href="http://pcmania.jp/~moraz/">vim users guide</a>
 <a href="http://www.water.sannet.ne.jp/clean/gvim.doc/vimmain.html">vimユーザマニュアル和訳プロジェクト </a>
 <a href="http://www.kaoriya.net/">kaoriya</a>
+<a href=""></a>
 <br>
 
 <strong>study</strong>
@@ -238,12 +256,14 @@
 <a href="http://www.isd.atr.co.jp/ecm/tierra-doc/japanese/tierra.html">Tierra 入門</a>
 <a href="http://www2.create.human.nagoya-u.ac.jp/~ari/stuff/alifesoft.html">人工生命の宝庫</a>
 <a href="http://www.ipsj.or.jp/katsudou/fit/fit2003.html">FIT2003</a>
+<a href=""></a>
 <br>
 
 <strong>LaTeX</strong>
 <a href="http://www.topstudio.co.jp/~kmuto/latex/">LaTeXしよう！</a>
 <a href="http://www.matsusaka-u.ac.jp/~okumura/texfaq/">日本語TeX情報</a>
 <a href="http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex.html">TeX(熊澤さん@滋賀大)</a>
+<a href=""></a>
 <br>
 
 <strong>本</strong>
