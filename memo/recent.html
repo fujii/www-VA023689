@@ -2,206 +2,451 @@
  <title>cymemo</title>
 <body>
  <pre>
-Date: 2002-07-08
-Subject: 言葉, bugfix: 勝ち組と負け組はブラジルだった
+Date: 2002-07-23
+Subject: cymemo: cymemo-grep と cymemo-head を gauche で書く
 Distribution: global
 
-今日[2002-07-08]なんだけど、修正。
+scheme の勉強がてら簡単なツールを作ってみた。
+関数型プログラミングを採り入れるため、
+意識的に代入を使わず書いてみたが、これが書きづらい。
 
-しかし、殺人まで発展する大問題だったとは。
-居酒屋での宇宙人はいる派といない派程度のものだと思っていた。
+  0! = 1
+  n! = n * (n-1)!
 
-「勝ち組」という言葉を違う意味で使用するのは
-別に間違いではないのかもしれない。
-ただ単に以前からあった言葉と偶然の一致をしただけなのかも知れない。
-ただ、間違いから生じたとしてもそれは新たな意味が加わったというだけのこと。
+こんな数学的なのを関数型言語で記述すると
+とてもいい感じに書けるのだが、
+現実のデータを処理するにのには向いていない気がする。
 
-「世間擦れ」なんかも、勘違いから新たな言葉「世間ずれ」が
-生まれたと考えた方がいい。
-
-自然言語は生き物だ。
-
-あら、「自然言語」って広辞苑で引いたら
-
-  しぜん‐げんご【自然言語】
-   (natural language) 人間が特別な訓練なしに自然に
-  習得し使用する言語。日本語・英語など。←→人工言語。
-
-「母語」の説明の様にも解釈できるなー。
-でも、対義語としては「人工言語」となってるなー。
+単に修行不足なだけかもしれないので、まだがんばるつもり。
 
 </pre><hr><pre>
-
-Date: 2002-07-08
-Subject: bookmark: タッチタイプ練習ソフト「キーボードマスター」
+Date: 2002-07-20
+Subject: emacs: info に ~/usr/info などを追加する
 Distribution: global
 
-小学生向けのタッチタイプ練習ソフトを研究テーマに
-している菅野くんと田熊くんが「キーボードマスター」
-をかなりほめていた。
+$HOME 以下にインストールした info を見る。
 
-多分このことでしょう。
+最も簡単な方法は C-u C-h i もしくは C-u M-x info
+とすれば、どの info ファイルを開くかを尋ねられる。
+他にもコマンド info を使用する方法もある。
 
-Keyboard Master
-<a href="http://www.plato-web.com/software/km/km.htm">http://www.plato-web.com/software/km/km.htm</a>
+しかし、これは面倒なので別の方法。
+まずは、私は ~/ の下の以下の 2つのディレクトリに
+インストールしてしまったので。
 
-「人間工学に基づいてデザイン」というのにそそられる。
-用語として「ブラインドタッチ」を使用しているのが
-ちょっと気になった。
+;; info
+(setq Info-additional-directory-list
+      '("~/usr/info" "~/usr/share/info"))
+
+こうする。別の方法は環境変数 INFOPATH で指定する。
+
+後は、そのディレクトリに「dir」ファイルを作成するだけ。
+しかし、この作成方法がよく知らない。
+とりあえず、
+
+$ cd ~/usr/info
+$ head -19 /usr/info/dir &gt; dir
+$ install-info --infodir=. --description=r5rsj r5rsj.info 
+$ install-info --infodir=. --description=gauche-refj ../share/info/gauche-refj.info
+$ install-info --infodir=. --description=gauche-refe ../share/info/gauche-refe.info 
+$ install-info --infodir=. --description=lookup-guide lookup-guide.info
+$ install-info --infodir=. --description=lookup lookup.info 
+
+こんな方法でできた。あとは「dir」はテキスト形式なので
+適当にいじって調整。
+
+[*1] 個人用の Info を追加する方法
+   <a href="http://www.namazu.org/~tsuchiya/elisp/texinfo-tips.html">http://www.namazu.org/~tsuchiya/elisp/texinfo-tips.html</a>
 
 </pre><hr><pre>
-
-Date: 2002-07-08
-Subject: 言葉, bookmark: 間違いが常識になってる言葉
+Date: 2002-07-20
+Subject: emacs: vi風単語移動
 Distribution: global
 
-検索してて面白いページを見つけた。
+2ch.net の Emacs スレッドより。
 
-間違いが常識になってる言葉
-<a href="http://piza.2ch.net/log2/gengo/kako/956/956221023.html">http://piza.2ch.net/log2/gengo/kako/956/956221023.html</a>
+viの単語移動と emacs の単語移動にこんな違いがあったのか。
 
-とても勉強になる。思わずローカルにコピー。
-読み通す際に一体何度辞書を引いたことか。
+(require 'vip)
+(define-key global-map "\M-f" 'vip-forward-word)
+(define-key global-map "\M-b" 'vip-backward-word)
 
-勝ち組と負け組の話はどこかで聞いたことがあるが
-思い出せなかった。
-元の意味は戦時中正しい情報が伝わってこない中、
-日本が勝っているか負けているかで意見が分かれたことらしい。
-
-結局勉強になっても私はすぐに忘れてしまうってことですな。
-
-あと有名な例だとは思うけど、
-「世間ずれ」はずれているのではなく、擦れて(すれて)いる。
-
-でも、今度こんなテーマの本を読もうかな。
-あと、言語学板@2ch.net もいってみよう。
-
-bug: 戦後のブラジルでの日系移民の話でした。
-  <a href="http://www.jic-gifu.or.jp/np/newspaper/kikaku/niji/niji24.htm">http://www.jic-gifu.or.jp/np/newspaper/kikaku/niji/niji24.htm</a>
-  <a href="http://www.geocities.com/Tokyo/Harbor/4114/l1japan.html">http://www.geocities.com/Tokyo/Harbor/4114/l1japan.html</a>
-  <a href="http://www8.ocn.ne.jp/~shigeo/brazil.html">http://www8.ocn.ne.jp/~shigeo/brazil.html</a>
+vip-mode とか vi-mode や viper-mode があるということは
+噂に知っていたが、初めて起動した。
+適当に単語移動の w を堪能して、終了のしようと思ったが仕方が分からず、C-x C-c。
+まあ、もう起動することもないでしょう。
 
 </pre><hr><pre>
-
-Date: 2002-07-07
-Subject: 言葉: 目一杯を「めいいっぱい」だと思ってました
+Date: 2002-07-18
+Subject: study: hnn 開発開始
 Distribution: global
 
-「めいいっぱい」って方言あるのだろうか？
-どうして私は勘違いをしていたのだろう。
+そろそろ、現実逃避もこれ位にして、22日のゼミに向けて
+プログラムを書かなくては。
 
-多分、「黄」を「きい」と発音してしまうのと似たような原理だと、
-とりあえず勝手に解釈しておこ。
+開発コード名: hnn
+仕様: GA(遺伝的アルゴリズム) で初期結合荷重と学習係数を
+      決める Hebb学習則の人工ニューラルネットワーク (ANN)。
+      この ANN の学習能力は2値論理関数の学習により計測。
+      学習課題である論理関数は個体により変えるため、
+      GA の初期結合荷重で先天的に学習することは不可能。
 
-ちなみに私は「雰囲気」は「ふいんき」派。だんぜん。
+はたして学習するだろうか。
+学習しそうにない気もするが、成功する気も捨て切れないのでとりあえず書く。
+ちなみに失敗しても次にまた似たようなのをする予定。
+それは、Hebb学習則に決め打ちではない。
 
-検索してみたら「さざんか」は「山茶花」でもとは「さんさか」らしい。
-
-「うろおぼえ うるおぼえ」で検索して88件ひっかかるのは
-今度暇な時にでも調査しよう。
-
-おお、「目一杯 めいいっぱい」でもヒットする。
+またも、メモ(日記)を書いて現実逃避をしているように見えるが、
+これを公開することによって、やる気が出る気がするのでまず書いてみた。
 
 </pre><hr><pre>
-
-Date: 2002-07-07
-Subject: emacs: winner-mode と windmove
+Date: 2002-07-18
+Subject: unix: man page を w3mman で見る
 Distribution: global
 
-winner-mode ってのが emacs に付いている。
-window configuration の変更の undo と redo ができる。
-M-x winner-mode で起動しておいて、
-undo したい時に C-x &lt;left&gt; でできる。
+昨日、現実逃避に w3m のキーバインドをどこまで emacs 風にできるか独り挑戦した。
+とは言っても、基本的に w3m はデフォルトで emacs 風になっているので、
+f,b,n,p,M-f,b だけでそれっぽくはなる。
+でも、M-{f,b} の単語単位の移動の「単語」の定義が emacs と違う。
 
-どんな人が使うのだろう？
-Emacs のフレームを目一杯大きくして
-その中でウィンドウを細かく分割している人には
-window configuration がひょんなことから崩れた時に
-undo できると便利かもしれない。
+今日、w3mman なるコマンドを発見。早速、
 
-winner-mode を info で調べて windmove とやらを発見した。
-これまた以前にこんなのあると面白いかもと思ったものだった。
-とりあえず、.emacs.el に追加してみる。
+  man(){w3mman "$@"}
 
-(define-key global-map "\M-N" 'windmove-down)
-(define-key global-map "\M-P" 'windmove-up)
-(define-key global-map "\M-B" 'windmove-left)
-(define-key global-map "\M-F" 'windmove-right)
+普段 man をコマンドで起動することは滅多になく、
+zsh の M-h で関数 run-help を実行し、
+その関数から man を実行しています。
+M-x man は C言語の関数を調べるのには重宝してます。
 
-lookup を使うと window が縦3分割になるので、
-その時に down と up が役に立つかも。
+これからのページャは w3m だね。たぶん。
 
 </pre><hr><pre>
-
-Date: 2002-07-07
-Subject: scheme, bookmark: ng + scheme = ngscm
+Date: 2002-07-17
+Subject: bookmark, computer: 「菜列堂」プログラミング言語、テキスト嗜好症, YAFIYGI
 Distribution: global
 
-広大の角川裕次さんが作った ng で scheme開発環境。
+菜列堂
+<a href="http://www.gin.or.jp/users/daikoku/">http://www.gin.or.jp/users/daikoku/</a>
 
-プログラミング言語 Scheme 教育環境
-<a href="http://aten.aial.hiroshima-u.ac.jp/Reprints/NGSCM/ngscm.html">http://aten.aial.hiroshima-u.ac.jp/Reprints/NGSCM/ngscm.html</a>
+プログラミング言語、テキスト嗜好症, YAFIYGI
 
-Guile Emacs の scheme interaction mode と
-似たような感じを実現しているのかな。
+  「やふぃやぎ」と読みます。
 
-<a href="http://sourceforge.net/projects/gemacs/">http://sourceforge.net/projects/gemacs/</a>
+Jargon での発音記号は /yaf'ee-y*-gee/ 。
+ヤフィーイジー ?
 
 </pre><hr><pre>
-
-Date: 2002-07-07
-Subject: 大和正武さんの ChangeLog を読んだ
+Date: 2002-07-15
+Subject: bookmark: 2002年 PRMU研究会 アルゴリズムコンテスト
 Distribution: global
 
-<a href="http://www.gyve.org/~jet/ChangeLog0">http://www.gyve.org/~jet/ChangeLog0</a>
-<a href="http://www.gyve.org/~jet/ChangeLog1">http://www.gyve.org/~jet/ChangeLog1</a>
-<a href="http://www.gyve.org/~jet/ChangeLog">http://www.gyve.org/~jet/ChangeLog</a>
-
-前々からどうして automake では make rpm とできない
-ないのだろうと思っていたら autopack があるみたい。
-
-autopack
-<a href="http://www.gyve.org/~jet/autopack/">http://www.gyve.org/~jet/autopack/</a>
+2002年 PRMU研究会
+アルゴリズムコンテスト
+<a href="http://yokoya.aist-nara.ac.jp/prmu02/">http://yokoya.aist-nara.ac.jp/prmu02/</a>
 
 </pre><hr><pre>
-
-Date: 2002-07-07
-Subject: memo: 過去の日記の間違いの修正
+Date: 2002-07-15
+Subject: emacs: query-replace-regexp-eval
 Distribution: global
 
-玄米フレークを麦芽フレークと勘違いしていた。
-[2002-07-01] に麦芽と書いている。
-こういう時にどのように修正するかで迷う。
-いままでも、何度か修正したことはあるが、
-修正は過去を書き換えるようで避けた方がいい気がする。
+M-x query-replace-regexp-eval
 
-どうするのがベストか分からないが
-とりあえずこの件は修正を付け加えてみた。
-「誤り」をリーダーズで引くと先頭に「bug」と出てきた。
-typo じゃないし、bug でいい感じ。
+正規表現にマッチした文字列を S式 の評価後の
+文字列もしくは値に置換する。
+
+便利な変数として、replace-count や \&amp;, \0, \1, \#&amp;, \#0, \#, \#1 などが
+用意されている。
+
+[2002-07-05]の連番に使えそう。
 
 </pre><hr><pre>
-
-Date: 2002-07-06
-Subject: scheme: SRFI の発音は スーフィ or サーフィ?
+Date: 2002-07-13
+Subject: bookmark, scheme: scheme + prolog = Schelog 
 Distribution: global
 
-SRFI(Scheme Request for Implementation)の発音について
-公式FAQ[*1]に書いてあった。
+Schelog
+<a href="http://www.ccs.neu.edu/home/dorai/schelog/schelog.html">http://www.ccs.neu.edu/home/dorai/schelog/schelog.html</a>
 
-surfie ってなんて発音するのだろう？
-スーフィ かな サーフィ かな？
-
-多分、波乗り野郎(surfie)の サーフィ でしょう。
-
-
-[*1] Scheme Request for Implementation - FAQ
-   <a href="http://srfi.schemers.org/srfi-faq.html">http://srfi.schemers.org/srfi-faq.html</a>
+<a href="http://www.ccs.neu.edu/home/dorai/">http://www.ccs.neu.edu/home/dorai/</a>
+この方、TeX2page や pregexp も作ってらっしゃる。
 
 </pre><hr><pre>
+Date: 2002-07-13
+Subject: prolog で切符問題の問題点
+Distribution: global
 
-Date: 2002-07-06
-Subject: scheme: gauche をインストール
+昨日の prolog は、足し算を
+
+  ticket(Ans, [A, B], [A, '+', B]) :- Ans is A + B.
+
+このように定義するとスマートだ。
+さらに可換可能を、
+
+  ticket(Ans, [A, B], [A, '+', B]) :- Ans is B + A.
+
+と表せますね。
+
+さらに、単項マイナスを考えていなかった。
+しかし、これを含めると解が無限になるな。
+
+さらに、有理数のことも全然考えていない。
+prolog に有理数のライブラリが見つからないので
+もうあきらめよ。
+
+ところで、「切符問題」は英語でなんというのですか？
+検索しても見つからない。
+外人さんはこのクイズは知らないのかな。
+でも、河合さんはハワイの中華料理店で話題になったくらいだし。
+
+</pre><hr><pre>
+Date: 2002-07-12
+Subject: prolog で切符問題
+Distribution: global
+
+以前、gaucheの河合さんの日記を発端に一部のWeb日記界で
+話題になっていた切符問題を、折角取った prolog のきねづかに
+prolog で解いてみた。
+
+<a href="http://namazu.org/~satoru/diary/?200112b&amp;to=200112121#200112121">http://namazu.org/~satoru/diary/?200112b&amp;to=200112121#200112121</a>
+<a href="http://www.sampou.org/nobsun/journal/?200112b&amp;to=200112161#200112161">http://www.sampou.org/nobsun/journal/?200112b&amp;to=200112161#200112161</a>
+<a href="http://www.lava.net/~shiro/Private/diary/0112.html">http://www.lava.net/~shiro/Private/diary/0112.html</a>
+
+------
+split([], [], []).
+split([N|Ns], [N|N1], N2) :- split(Ns,N1,N2).
+split([N|Ns], N1, [N|N2]) :- split(Ns,N1,N2).
+
+ticket(Goal, [Goal], Goal).
+ticket(Goal, Ns, Ans) :- 
+    split(Ns, N1, N2), 
+    N1 \== [], N2 \== [],
+    ticket(G1, N1, A1), ticket(G2, N2, A2),
+    op(G1, G2, Goal, Op), Ans = [A1,Op,A2].
+
+op(X, Y, Ans, '+') :- Ans is X + Y.
+op(X, Y, Ans, '-') :- Ans is X - Y.
+op(X, Y, Ans, '*') :- Ans is X * Y.
+op(X, Y, Ans, '/') :- Y =\= 0, Ans is X / Y.
+------
+
+?- ticket(24, [1,3,4,6], Ans).
+
+Ans = [6, /, [1, -, [3, /, 4]]] ;
+
+これが答え。通りで、私には解けない訳です。
+この問題はみなさんはまったみたいだけど、
+私もかなりはまった。
+- と / が交換できないなどなど、全然考慮していなかった。
+かまりムキになっていた。
+
+しかし、この短さはすごい。
+prolog にはまってしまうかも。
+
+</pre><hr><pre>
+Date: 2002-07-12
+Subject: bookmark: 自分の referer をチェックできるページ
+Distribution: global
+
+<a href="http://www.cgihost.com/cgi-bin/env.cgi">http://www.cgihost.com/cgi-bin/env.cgi</a>
+<a href="http://www.univie.ac.at/cgi-demo/env.html">http://www.univie.ac.at/cgi-demo/env.html</a>
+<a href="http://www.cgi101.com/class/ch3/env.cgi">http://www.cgi101.com/class/ch3/env.cgi</a>
+
+w3m-add-referer なる変数に doc-string がついていない。
+もしや、私はリファラを送っていたのか？と不安になり、
+調べたくなった。
+
+リファラくらいケチらずに教えてあげればいいのに、
+と自分でも思ってはいる。
+
+</pre><hr><pre>
+Date: 2002-07-12
+Subject: bugfix, debian, emacs: emacs21-el にソースあり
+Distribution: global
+
+[2002-05-10]で無知をさらしてしまいました。
+
+emacs21-el ってパッケージがまさにそれでした。
+
+これで、describe-function (C-h f), finder-by-keyword (C-h p) も
+快適にソースへと飛ぶことができました。
+
+変なことを言ってしまってごめんなさい。 &gt; debian
+
+</pre><hr><pre>
+Date: 2002-07-12
+Subject: bookmark, 言葉: 京ことばの音韻
+Distribution: global
+
+またの日本語の話。
+「原因」が「げいいん」で漢字変換できないことで、
+検索を思い立つ。
+
+京ことばの音韻
+<a href="http://www.aurora.dti.ne.jp/~zom/Kyo-to/on-in.html">http://www.aurora.dti.ne.jp/~zom/Kyo-to/on-in.html</a>
+
+  原因          →  げいいん
+  じゃんけん    →  じゃいけん
+  雰囲気        →  ふいんき
+
+そうか、私の言葉の一部は京ことばなんだ。
+
+私は他にも、
+
+店員          →  ていいん or てんいん
+体育          →  たいく
+全員          →  ぜいいん or ぜーいん or ぜんいん
+
+すべてこの規則でなく、
+
+どんかん、てんかん、さんかんび、とんちんかん、ちゃんりんしゃん、
+ぜんせん、ぐんかん、びんかん、せんいん、
+
+などなど。普通に発音する。規則が分からない。
+規則があるとするなら、周りの人がどう発音しているかってことでしょう。
+
+</pre><hr><pre>
+Date: 2002-07-12
+Subject: life: 台風6号の猛威を検証
+Distribution: global
+
+一昨日、昨日と台風6号が東の方で猛威を振るった。
+これは、現在の太平洋の気団が小さいために例年なら
+朝鮮の方へ押しやられるはずの6号が日本に来たこと。
+そして、梅雨前線を刺激したこと。
+この2点が今回の災害の原因らしい。
+
+</pre><hr><pre>
+Date: 2002-07-11
+Subject: life: インスタントコーヒー AGF Blendy を試す。
+Distribution: global
+
+研究室で飲むインスタントコーヒーを「AGF Blendy」に変えた。
+これは水でも溶けるのでアイスコーヒーを作るのが楽。
+
+ちなみに、私は研究室の水道水もがぶがぶも飲む。
+
+あと、学生なのでコストは重要。
+テレビCM で主婦が台所でアイスコーヒーを飲んで楽園気分を
+味わっているのがあるがあれは高そうなので、却下。
+でも今度、とりあえず価格を調べてみよう。
+
+カフェインパワーでレポートがんばる。
+
+</pre><hr><pre>
+Date: 2002-07-11
+Subject: bourne shell: test -n ${foo} の返り値
+Distribution: global
+
+大和さんの ChangeLog で見つけた bourne shell の「よくはまる落とし穴」。
+test -n は文字列の長さが0より大きいなら真。
+sh では 0 が真で、1 が偽。
+
+$ test -n ${foo} ;echo $?
+0
+$ test -n "${foo}" ;echo $?
+1
+$ test -n "";echo $?
+1
+$ test -n ;echo $?
+0
+$ echo ${foo}
+
+$
+
+はまりどころ解説
+
+${foo}で引数がないのと、
+test -n が真を返しているのがはまりどころでしょう。
+
+</pre><hr><pre>
+Date: 2002-07-11
+Subject: bookmark: はじめてのプログラミング言語
+Distribution: global
+
+情報処理, Vol.39, No.11 (1998.11)
+インタラクティブ・エッセイ
+はじめてのプログラミング言語
+<a href="http://www.ulis.ac.jp/~nakai/ipsj/9811/ie9811.html">http://www.ulis.ac.jp/~nakai/ipsj/9811/ie9811.html</a>
+
+ * 今もって世界で最も多く使われているプログラミング言語は
+   COBOLと FORTRAN だそうである。
+ * FORTRAN はおそらく今後 100年たっても世界最高の
+   プログラミング言語であり続けるのだろう。
+ * scheme や prolog の試みはあまり成功したとは言えない
+
+読んでいて「成功」の定義が気になってしまった。
+またプログラム内蔵の話で、コンピュータではなくノイマン型コンピュータと
+書くべきだとまで、思ってしまった。
+
+こんなことに興味を持ったのも、今TAでC言語を1年生に教えているからでしょう。
+私としては理解して欲しいことはC言語の文法などではなく、
+プログラミングの考え方なのだが、どこまで伝わっているのだか。
+
+プログラミング教育で教えることはなんだろう。
+プログラミングの考え方、アルゴリズム、コンピュータの動作原理、
+楽しさ、そして即戦力だろうか。
+こりゃー、どれに比重を置くかで選ぶ言語も変わるな。
+
+</pre><hr><pre>
+Date: 2002-07-11
+Subject: prolog: is と = ではまる
+Distribution: global
+
+?- X is 3+1.
+
+X = 4 ;
+
+?- X = 3+1.
+
+X = 3+1 ;
+
+prolog の人には常識だけど、
+初心者は結構はまる気がする。
+FAQ ならぬ 「良くはまる落とし穴」とかないだろうか。
+高林さんのページには Unix のそういうのがあった。
+
+ UNIXの落とし穴
+ <a href="http://namazu.org/~satoru/computing/unix-sucks.html">http://namazu.org/~satoru/computing/unix-sucks.html</a>
+
+prolog は実に興味深い。
+言語が興味深いのではなく、その考え方だと思う。
+prolog は考え方が独特で、その考え方をするのが難しい。
+単に慣れの問題という気もするが。
+
+prolog の実用面を考えてみる。
+最近の日経コンピュータに prolog でシステムを構築した
+事例の小さな記事が載っていた。
+prolog は知識を蓄えるのにいいようだ。
+英単語の原型を求めるのに使えるのではないだろうか。
+例えば、 went, goes, gone の原型は go 。
+こんな感じで知識を蓄えるとできそう。
+他は思いつかない。
+
+私は新たに発見した知識をこのメモに日本語で記録している。
+これを prolog で蓄えるのは難しそうだ。
+数学などのきっちりした世界ではうまくいきそう。
+
+prolog はちょっとかじっただけなので、これくらいにしておこう。
+もう、prolog のレポートは勘弁してほしい。
+100行ちょっとのプログラムに 3日も費やしてしまった。
+特に、デバッグが慣れてないのか、難しい。
+
+</pre><hr><pre>
+Date: 2002-07-11
+Subject: book: ゾウの時間ネズミの時間
+Distribution: global
+
+ゾウの時間ネズミの時間 サイズの生物学
+本川達雄 中公新書 1992
+
+生物ってのは面白い。
+でも、学校の生物の授業は面白いと思わなかった。
+私の心拍は人より早いので、寿命も短そうだ。
+
+<a href="http://www.athome.co.jp/academy/biology/bio03.html">http://www.athome.co.jp/academy/biology/bio03.html</a>
+によると、人の寿命は26.3才。
+
+</pre><hr><pre>
  </pre>
 </body>
 </html>
