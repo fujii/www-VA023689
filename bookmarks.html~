@@ -20,7 +20,6 @@
 <strong>巡回</strong>
 <a href="http://a.hatena.ne.jp/hfujii/simple">hatena</a>
 <a href="http://www.yahoo.co.jp/">Yahoo! JAPAN</a>
-<a href="http://emacs-w3m.namazu.org/ml/">[emacs-w3m]</a>
 <a href="http://lists.debian.or.jp/debian-users/">[debian-users]</a>
 <br>
 
@@ -37,7 +36,7 @@
 <a href="http://www.atmarkit.co.jp/">@IT</a>
 <a href="http://www.idg.co.jp/lw/">Linux World Online</a>
 <a href="http://dict.cre.jp/">dict.cre.jp</a>
-<a href="http://japan.internet.com/"></a>
+<a href="http://japan.internet.com/">japan.internet.com</a>
 <a href="http://www-6.ibm.com/jp/developerworks/">IBM dW</a>
 <br>
 
@@ -49,6 +48,13 @@
 <a href="http://slashdot.org/">slashdot</a>
 <a href="http://news.com.com/">CNET News.com</a>
 <a href="http://www.osnews.com/">OSnews</a>
+<br>
+
+<strong>新聞</strong>
+<a href="http://www.asahi.com/">朝日新聞</a> 
+<a href="http://www.yomiuri.co.jp/">読売新聞</a>
+<a href="http://www.mainichi.co.jp/">毎日新聞</a>
+<a href="http://www.nikkei.co.jp/">日本経済新聞</a>
 <br>
 
 <strong>日記</strong>
@@ -122,24 +128,24 @@
 <a href="http://www.gnu.org/brave-gnu-world/">Brave GNU World</a>
 <br>
 
-<!--
-  <strong>電子辞書</strong>
-  <a href="http://openlab.ring.gr.jp/edict/">/edict/</a>
-  <a href="http://openlab.ring.gr.jp/lookup/">Lookup</a>
-  <a href="http://openlab.ring.gr.jp/edict/fpw/">FPWBOOK</a>
-  <a href="http://www.sra.co.jp/people/m-kasahr/freepwing/">FreePWING</a>
-  <a href="http://www.sra.co.jp/people/m-kasahr/eb/index-ja.html">EB Library</a>
-  <a href="http://plaza3.mbn.or.jp/~h_ishida/">EBシリーズ</a>
-  <br>
-  
-  <strong>online辞書</strong>
-  <a href="http://www.wdic.org/">通信用語の基礎知識</a>
-  <a href="http://www.ascii.co.jp/ghelp/index.html">ASCII Glossary Help</a>
-  <a href="http://www.e-words.ne.jp/">情報・通信事典 e-Words</a>
-  <a href="http://www.tulips.tsukuba.ac.jp/misc/export/cat/kanparts/">部品で漢字を検索
-  <a href="http://www.britannica.co.jp/search/home">britannica.co.jp</a>
-  <br>
--->
+<strong>電子辞書</strong>
+<a href="http://openlab.ring.gr.jp/edict/">/edict/</a>
+<a href="http://openlab.ring.gr.jp/lookup/">Lookup</a>
+<a href="http://openlab.ring.gr.jp/edict/fpw/">FPWBOOK</a>
+<a href="http://www.sra.co.jp/people/m-kasahr/freepwing/">FreePWING</a>
+<a href="http://www.sra.co.jp/people/m-kasahr/eb/index-ja.html">EB Library</a>
+<a href="http://plaza3.mbn.or.jp/~h_ishida/">EBシリーズ</a>
+<a href="http://www.popjisyo.com/">POP辞書</a>
+<br>
+
+<strong>online辞書</strong>
+<a href="http://www.wdic.org/">通信用語の基礎知識</a>
+<a href="http://www.ascii.co.jp/ghelp/index.html">ASCII Glossary Help</a>
+<a href="http://www.e-words.ne.jp/">情報・通信事典 e-Words</a>
+<a href="http://www.tulips.tsukuba.ac.jp/misc/export/cat/kanparts/">部品で漢字を検索
+<a href="http://www.britannica.co.jp/search/home">britannica.co.jp</a>
+<br>
+
 
 <strong>自分</strong>
 <a href="http://www.vector.co.jp/authors/VA023689/">藤井 宏憲</a>
@@ -161,17 +167,15 @@
 <a href="http://pcmania.jp/~moraz/">vim users guide</a>
 <a href="http://www.water.sannet.ne.jp/clean/gvim.doc/vimmain.html">vimユーザマニュアル和訳プロジェクト </a>
 <a href="http://www.kaoriya.net/">kaoriya</a>
-<a href=""></a>
 <br>
 
 <strong>study</strong>
 <a href="http://www.ieice.org/jpn">電子情報通信学会</a>
 <a href="http://wwwsoc.nacsis.ac.jp/jsai/">人工知能学会</a>
 <a href="http://www.ipsj.or.jp/">情報処理学会</a>
-<a href="http://citeseer.nj.nec.com/">The NECI Scientific Literature Digital Library</a>
+<a href="http://citeseer.nj.nec.com/">citeseer</a>
 <a href="http://www.isd.atr.co.jp/ecm/tierra-doc/japanese/tierra.html">Tierra 入門</a>
 <a href="http://www2.create.human.nagoya-u.ac.jp/~ari/stuff/alifesoft.html">人工生命の宝庫</a>
-<a href="http://www.funet.fi/~magi/opinnot/gradu/">Evolutionaly Design of Neural Networks</a>
 <a href="http://www.ipsj.or.jp/katsudou/fit/fit2003.html">FIT2003</a>
 <br>
 
@@ -191,6 +195,7 @@
 <a href="http://www.bagley.org/~doug/shootout/">shootout</a>
 <a href="http://sky.zero.ad.jp/~zaa54437/home.htm">池田聡さん</a>
 <a href="http://www-users.cs.york.ac.uk/~colin/icfp2003.html">ICFP2003</a>
+<a href="http://www.wotsit.org/">wotsit</a>
 <br>
 
 <strong>caml</strong>
