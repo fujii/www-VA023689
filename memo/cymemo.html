@@ -2,6 +2,159 @@
  <title>cymemo</title>
 <body>
  <pre>
+
+Date: 2002-06-24
+Subject: debian: debuan を読んでみる
+Distribution: global
+
+debian の同人誌でぶあん[*1]をすこし読んでみた。
+第2回でぶあん AWARDの「Gary Thomasと賢者の石」が面白い。
+暇な時に続きを読も。
+
+[*1] Deぶan BNU/Linux不徹底入門
+    <a href="http://www.debuan.org/">http://www.debuan.org/</a>
+
+BNUは「 Busu is Not Umemiya-annna 」の略
+
+</pre><hr><pre>
+
+Date: 2002-06-24
+Subject: emacs: FUJII-print-buffer
+Distribution: global
+
+こんな感じになった。
+しばらく、これで試用してみよ。
+
+(define-key global-map "\C-cp" 'FUJII-print-buffer)
+
+(defun FUJII-print-buffer ()
+  (interactive)
+  (let ((cmd (read-string "Shell Command: "
+			  (concat "a2psj -l " (shell-quote-argument (buffer-name)) " |lpr"))))
+    (save-excursion
+      (mark-whole-buffer)
+      (shell-command-on-region
+       (region-beginning) (region-end) cmd))))
+
+</pre><hr><pre>
+
+Date: 2002-06-24
+Subject: life: 親が広島に来た
+Distribution: global
+
+土曜に親と妹が来た。
+父とガーデンにて焼肉を食らう。
+カルビフェアでカルビが半額の325円くらいだった。それを5皿。
+海の幸盛併せ、生ビール、イカとタコの串焼き、キムチ。
+
+三人はサッカーを見て帰っていった。
+
+</pre><hr><pre>
+
+Date: 2002-06-21
+Subject: Anir mouse の論文を読んでる
+Distribution: global
+
+授業で英語の論文を読まされている。
+人間工学にもとづいたマウスで Anir mouse という。
+しかし、その外見はネズミというよりただのジョイスティックで
+得に目新しさは感じられない。
+どこがエルゴノミクスかというと、従来のマウスは右の上腕を
+90度半時計回りにひねり続けて使用するが、
+ジョイスティックは腕を前に出してそのまま自然と
+握れるということらしい。
+
+<a href="http://www.zdnet.co.jp/macweek/9711/20/n_mouse.html">http://www.zdnet.co.jp/macweek/9711/20/n_mouse.html</a>
+
+発表は28日。だから、それまでは忙しい。
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: 言葉: なにげに
+Distribution: global
+
+「なにげに」を漢字変換できなくて辞書を引く、
+「なにげなく」が正しくて、現代用語の基礎知識によると
+「なにげに」は〔若者用語〕だそうです。
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: 言葉: comment out
+Distribution: global
+
+普段何気なくつかっていた「コメントアウト」ということばの
+意味に自身がなくなった。
+もしかするとコメントを外すことを「コメントアウト」というのでは！
+
+"The Jargon File" を引くと "comment out" でちゃんと載ってた。
+やっぱり、コメント化することでした。
+役に立ちました &gt; Jargon File
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: 両対数グラフについて理解する
+Distribution: global
+
+両対数グラフだと
+  y=x
+  y=x^2
+  y=x^3
+などは直線になるんですね。
+
+echo 'set logscale;plot [0.1:1000] [0.1:1000] x,x**2,x**3,2**x;pause 1000'|gnuplot
+
+こんなことはきっと常識ですね。
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: emacs: バッファの印刷
+Distribution: global
+
+カスタマイズ変数を調べるのに疲れたので、結局書く。
+
+(defun fujii-print-buffer ()
+  (interactive)
+  (save-excursion
+    (mark-whole-buffer)
+    (shell-command-on-region
+     (region-beginning) (region-end)
+     (concat "a2psj -l " (shell-quote-argument (buffer-name)) " |lpr"))))
+
+ポートレイトやワイドなど、もっと機能が欲しい気もする。
+しばらくは忙しいので書かないように自粛しなくては。
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: emacs: バッファの印刷のうまくいかない
+Distribution: global
+
+command-apropos でそれらしきコマンドは4つ検索にひっかかった。
+
+ebnf-print-buffer
+print-buffer
+ps-print-buffer
+ps-print-buffer-with-faces
+
+print-buffer はどうも pr に -h でヘッダ文字列を指定してる。
+ps-print-buffer は日本語が化ける。
+ps-print-buffer-with-faces も日本語が化ける。
+
+どれも、うまくいかない。
+
+</pre><hr><pre>
+
+Date: 2002-06-14
+Subject: hcu: 6月14日は開学記念日で休講
+Distribution: global
+
+ついでに今日はサッカーW杯日韓大会Hグループ最終戦。
+みんなは家でTV観戦かな。
+</pre><hr><pre>
+
 Date: 2002-06-12
 Subject: latex: moreverb: タブ &amp; 行番号対応 テキストファイルそのまま挿入
 Distribution: global
@@ -42,7 +195,7 @@ LaTeX に取り込みたい。
 希望としてはスペース8個にでも置換して欲しい。
 あと、行番号をオプションで欲しいところです。
 また、ページの終りで改ページはされるが、
-行の終りで改行がされない。
+行の終りで改行がされず、つき抜ける。
 
 Webを検索すると \verbatimlisting とか、
 \verbatimfiles なんてのもあるみたい。

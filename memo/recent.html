@@ -2,6 +2,159 @@
  <title>cymemo</title>
 <body>
  <pre>
+
+Date: 2002-06-24
+Subject: debian: debuan を読んでみる
+Distribution: global
+
+debian の同人誌でぶあん[*1]をすこし読んでみた。
+第2回でぶあん AWARDの「Gary Thomasと賢者の石」が面白い。
+暇な時に続きを読も。
+
+[*1] Deぶan BNU/Linux不徹底入門
+    <a href="http://www.debuan.org/">http://www.debuan.org/</a>
+
+BNUは「 Busu is Not Umemiya-annna 」の略
+
+</pre><hr><pre>
+
+Date: 2002-06-24
+Subject: emacs: FUJII-print-buffer
+Distribution: global
+
+こんな感じになった。
+しばらく、これで試用してみよ。
+
+(define-key global-map "\C-cp" 'FUJII-print-buffer)
+
+(defun FUJII-print-buffer ()
+  (interactive)
+  (let ((cmd (read-string "Shell Command: "
+			  (concat "a2psj -l " (shell-quote-argument (buffer-name)) " |lpr"))))
+    (save-excursion
+      (mark-whole-buffer)
+      (shell-command-on-region
+       (region-beginning) (region-end) cmd))))
+
+</pre><hr><pre>
+
+Date: 2002-06-24
+Subject: life: 親が広島に来た
+Distribution: global
+
+土曜に親と妹が来た。
+父とガーデンにて焼肉を食らう。
+カルビフェアでカルビが半額の325円くらいだった。それを5皿。
+海の幸盛併せ、生ビール、イカとタコの串焼き、キムチ。
+
+三人はサッカーを見て帰っていった。
+
+</pre><hr><pre>
+
+Date: 2002-06-21
+Subject: Anir mouse の論文を読んでる
+Distribution: global
+
+授業で英語の論文を読まされている。
+人間工学にもとづいたマウスで Anir mouse という。
+しかし、その外見はネズミというよりただのジョイスティックで
+得に目新しさは感じられない。
+どこがエルゴノミクスかというと、従来のマウスは右の上腕を
+90度半時計回りにひねり続けて使用するが、
+ジョイスティックは腕を前に出してそのまま自然と
+握れるということらしい。
+
+<a href="http://www.zdnet.co.jp/macweek/9711/20/n_mouse.html">http://www.zdnet.co.jp/macweek/9711/20/n_mouse.html</a>
+
+発表は28日。だから、それまでは忙しい。
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: 言葉: なにげに
+Distribution: global
+
+「なにげに」を漢字変換できなくて辞書を引く、
+「なにげなく」が正しくて、現代用語の基礎知識によると
+「なにげに」は〔若者用語〕だそうです。
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: 言葉: comment out
+Distribution: global
+
+普段何気なくつかっていた「コメントアウト」ということばの
+意味に自身がなくなった。
+もしかするとコメントを外すことを「コメントアウト」というのでは！
+
+"The Jargon File" を引くと "comment out" でちゃんと載ってた。
+やっぱり、コメント化することでした。
+役に立ちました &gt; Jargon File
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: 両対数グラフについて理解する
+Distribution: global
+
+両対数グラフだと
+  y=x
+  y=x^2
+  y=x^3
+などは直線になるんですね。
+
+echo 'set logscale;plot [0.1:1000] [0.1:1000] x,x**2,x**3,2**x;pause 1000'|gnuplot
+
+こんなことはきっと常識ですね。
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: emacs: バッファの印刷
+Distribution: global
+
+カスタマイズ変数を調べるのに疲れたので、結局書く。
+
+(defun fujii-print-buffer ()
+  (interactive)
+  (save-excursion
+    (mark-whole-buffer)
+    (shell-command-on-region
+     (region-beginning) (region-end)
+     (concat "a2psj -l " (shell-quote-argument (buffer-name)) " |lpr"))))
+
+ポートレイトやワイドなど、もっと機能が欲しい気もする。
+しばらくは忙しいので書かないように自粛しなくては。
+
+</pre><hr><pre>
+
+Date: 2002-06-20
+Subject: emacs: バッファの印刷のうまくいかない
+Distribution: global
+
+command-apropos でそれらしきコマンドは4つ検索にひっかかった。
+
+ebnf-print-buffer
+print-buffer
+ps-print-buffer
+ps-print-buffer-with-faces
+
+print-buffer はどうも pr に -h でヘッダ文字列を指定してる。
+ps-print-buffer は日本語が化ける。
+ps-print-buffer-with-faces も日本語が化ける。
+
+どれも、うまくいかない。
+
+</pre><hr><pre>
+
+Date: 2002-06-14
+Subject: hcu: 6月14日は開学記念日で休講
+Distribution: global
+
+ついでに今日はサッカーW杯日韓大会Hグループ最終戦。
+みんなは家でTV観戦かな。
+</pre><hr><pre>
+
 Date: 2002-06-12
 Subject: latex: moreverb: タブ &amp; 行番号対応 テキストファイルそのまま挿入
 Distribution: global
@@ -42,166 +195,13 @@ LaTeX に取り込みたい。
 希望としてはスペース8個にでも置換して欲しい。
 あと、行番号をオプションで欲しいところです。
 また、ページの終りで改ページはされるが、
-行の終りで改行がされない。
+行の終りで改行がされず、つき抜ける。
 
 Webを検索すると \verbatimlisting とか、
 \verbatimfiles なんてのもあるみたい。
 
 </pre><hr><pre>
 
-Date: 2002-06-11
-Subject: emacs: 遂に bobcat を使用する
-Distribution: global
-
-;; C-h を BS に
-(load "term/bobcat")
-
-これまでは以下の様にしていた。
-
-(define-key global-map "\C-h" 'delete-backward-char)
-(define-key isearch-mode-map "\C-h" 'isearch-delete-char)
-(eval-after-load "its"
-  '(define-key 'its-mode-map "\C-h" 'its-delete-backward-SYL))
-
-latex のモードでの C-c C-o での C-h の変更の仕方が分からなかったので、挫折。
-
-bobcat は自分のいつもの環境でないときに、
-M-x load-library "term/bobcat" とするのには便利だが、
-M-x describe-bindings の結果が一致しなくなるのが欠点。
-
-$ cat /usr/share/emacs/21.2/lisp/term/bobcat.el
-;;; HP terminals usually encourage using ^H as the rubout character
-(load "term/keyswap" nil t)
-$ head -1 /usr/share/emacs/21.2/lisp/term/keyswap.el
-;;; keyswap.el --- swap BS and DEL keys
-
-この様に bobcat.el は keyswap.el をロードしているだけで、
-keyswap.el の1行目には 「BS と DEL をスワップする」と書いてある。
-そのため、以前は DEL キーが help-command になると思っていたが
-ならないですよね、これが。
-
-</pre><hr><pre>
-
-Date: 2002-06-11
-Subject: bookmark: 人工痴能うずら
-Distribution: global
-
-人工無能うずら(人工痴能)の部屋
-<a href="http://www.din.or.jp/~ohzaki/uzura.htm">http://www.din.or.jp/~ohzaki/uzura.htm</a>
-
-「うずらの会話の実例」を読んで笑っちゃいました。
-
-</pre><hr><pre>
-
-Date: 2002-06-07
-Subject: cymemo: recent.html を head -200 に
-Distribution: global
-
-100行では多い日は1日分しか入らない入らないので、200行にしてみた。
-
-</pre><hr><pre>
-
-Date: 2002-06-07
-Subject: 広島三大祭: とうかさん
-Distribution: global
-
-学内で浴衣姿の人をみて思い出す。
-そうか、6月の第1金曜日なのか。
-しかし、大学で浴衣とは気合いの入った人もいるもんだ。
-1年生かな。
-
-* もともとは10日（とうか）にしていたらしい
-* 1619年、浅野長晟公が「圓隆寺」を建立以来380年の歴史
-* 富くじが違法で中止に
-
-</pre><hr><pre>
-
-Date: 2002-06-07
-Subject: tv: 対論 再生可能エネルギーと私たちの未来
-Distribution: global
-
-昨夜はニュースステーションがお休みだったので、
-教育テレビを観た。
-
-シリーズ 自然エネルギーへの模索 第2回
-「対論 再生可能エネルギーと私たちの未来」
-出演 ヨアン・S・ノルゴー(デンマーク工科大学教授)
-     内橋克人(経済評論家)
-
-* マスコミによる国民の経済成長への信仰
-* お金か時間か
-* 人口の減少は持続可能社会において重要
-
-番組は途中から観たが、最近考えるテーマと一致して
-興味津々に最後まで観た。
-
-</pre><hr><pre>
-
-Date: 2002-06-07
-Subject: variable: 使用開始から3カ月
-Distribution: global
-
-長時間、前のほうに座ると腰がそり過ぎて痛くなることがある。
-その時は少し後ろに座る。
-
-最近は行儀が悪い。
-座ってしばらくするとすねを載せるところに足を載せてしまう。
-
-</pre><hr><pre>
-
-Date: 2002-06-07
-Subject: fvwm: AutoRaise を止めてみる
-Distribution: global
-
-昨日から AutoRaise を止めにしてみた。
-これはマウスカーソルの下のウィンドウが自動的に
-最前に出てくるアレです。
-
-この変更にともないキーボードでのウィンドウ切替えも
-従来の設定ではうまくいかなくなったので、変更。
-これが大変だった。
-ただ単に私が .fvwm2rc の文法などをちゃんと
-勉強していないだけなのだが、
-これで苦労するたびに fvwm を捨てたくなる。
-
-候補として考えているもの
-
- scwm: scheme で設定をいじれるのがいい。
-       でも、以前試した時は異常に遅かった。
-       fvwm の軽さは捨て難い。
-
- sawfish: とりあえず lisp でいじれるらしい。
-          gnome なしはいい感じなのだろうか？
-          仮想デスクトップはほしい。
-
-</pre><hr><pre>
-
-Date: 2002-06-07
-Subject: 朝食: ケッログで快腸
-Distribution: global
-
-朝のお通じの際、自分の体調の変化に気づく。
-腸の調子がいい。
-これまで食べたのは玄米フレーク2箱と
-おとついから食べているオールブランである。
-スットクのコーンフレークの箱を見ると、
-2週間でお腹の調子がよくなると書かれている。
-まさにその通りである。食物繊維のおかげかな。
-
-しかし、このオールブランの味がどうも私に合わない。
-玄米フレークも決しておいしいとは思わなかったが、
-これはさらに宇宙食度が増している。
-でも、これは食物繊維の多い商品のようだし、
-まずいというだけでは捨て難い。
-
-</pre><hr><pre>
-
-Date: 2002-06-06
-Subject: bookmark: 富豪的プログラミング
-Distribution: global
-
-「富豪的プログラミング」
-<a href="http://www.csl.sony.co.jp/person/masui/fugo.html">http://www.csl.sony.co.jp/person/masui/fugo.html</a>
  </pre>
 </body>
 </html>
