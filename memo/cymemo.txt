@@ -1,3 +1,121 @@
+Date: 2002-07-02
+Subject: gnu, lisp, scheme: GNU 機能拡張用言語計画
+Distribution: global
+
+GNU 機能拡張用言語計画(GNU Extension Language Plans)
+Richard Stallman, GNU Project
+
+http://noa.sipeb.aoyama.ac.jp/GNU/gnu.extension.langJ.html
+
+これって、guileのこと？
+guile ってこんな言語になるんだ。
+
+どうやって、guile ベースの emacs を作るのか疑問でしたが、
+ダイナミックスコーピングとレキシカルスコーピングを両方持つみたい。
+
+また、elisp からのトランスレータを書きやすくするために
+シンボルに余分なスロットをもたせる。
+
+関数内に(interactive)についても書かれている。
+たしか、scwm ですでに見た気もする。
+しかし、このインタラクティブ指定と
+doc-stringを関数内に書くのって便利だけど、
+あまりスマートではないように思える。
+
+
+
+
+Date: 2002-07-02
+Subject: bookmark: モナーフォントのひと
+Distribution: global
+
+scheme のリンクを辿ってたら、
+モナーフォントの作者(?)の人のページにたどり着いた。
+http://www.unixuser.org/~euske/profile.html
+
+
+
+Date: 2002-07-02
+Subject: unix: $HOME はいじくらないほうがよさそうな気がした
+Distribution: global
+
+[2002-06-28] の荒技では ~/foo という表記にも
+問題が発生しますね。
+試す気はなかったのですが。
+
+[2002-06-29] でついに ~/etc を作ってしまった。
+/etc の下には大文字のディレクトリ名として、 X11 と CORBA があり、
+ドットで始まるのが、.hoffice-conf, .pwd.lock, .serial.conf.old があるが、
+やっぱ、小文字で統一するのがいい。
+スペースとか大文字とかドットファイルはいやだ。
+
+
+
+Date: 2002-07-01
+Subject: 古いメールのmbox形式をmhに変換
+Distribution: global
+
+$ /usr/bin/mh/inc -file mbox +old
+
+mbox形式をmhに。
+
+http://itpro.nikkeibp.co.jp/linux/faq/200011-3.shtml
+
+
+Date: 2002-07-01
+Subject: モスバーガの厨房に麦芽フレークを発見
+Distribution: global
+
+日曜にモスのドライブスルーへ。
+後ろの車の存在が、急かされる(せかされる)気がして
+メニューを選ぶ際に一人で焦ってた。
+
+受取の際に垣間見えるモスの内部に麦芽フレークを発見。
+しかも、ケロッグ。
+商品の材料なのか、それとも店員さんのおやつなのか。
+
+
+
+Date: 2002-07-01
+Subject: linux: Kondara 解散
+Distribution: global
+
+http://www.kondara.org/announcement/kaisan.html.ja
+http://www.momonga-linux.org/
+
+私には momonga は恥ずかしい。
+
+
+Date: 2002-07-01
+Subject: emacs, egg: 変換漢字の候補を一覧表示
+Distribution: global
+
+[2002-04-11]ですでに M-v のことは書いていたが、
+egg の変換の候補でも一覧が表示される。
+
+SPC して、M-s で候補をミニバッファに表示してから、M-v。
+kinput みたい。
+
+
+
+Date: 2002-06-29
+Subject: debian, emacs: Anthy を試す
+Distribution: global
+
+FreeWnn に疲れたので Anthy を試してみる。
+作者の方が deb を作っていたので入手。
+
+http://utyuuzin.net/debian/dists/original/unstable/binary-i386/
+
+  o いきなり qwerty 配列依存に出会ってびっくり。
+    でも、確かにホームポジションは便利だよな。
+  o 初めてということもあり egg との違いが気になる
+  o フェンスが [ ] なので show-paren-mode が反応する
+  o デフォルトが cannadic ってのがいい
+    でも、「海馬」がでなかった
+
+
+
 Date: 2002-06-29
 Subject: kinput2 と FreeWnn で辞書を追加
 Distribution: global
@@ -7,8 +125,11 @@ Distribution: global
 どうも egg で supplement が有効にならなかった。
 
 これはどうやら、kinput2 で supplement を使用していない
-ことが問題でした。そこで kinput2 でも supplement を
-使用する方法。
+ことが問題でした。
+wnnstat -E の結果より、 kinput2 も egg も同じ環境名fujiiを
+使っているためだと思う。
+
+そこで kinput2 でも supplement を使用する方法。
 
 ~/.Xresources に下の1行追加して、 xrdb .Xresources
 
@@ -23,6 +144,10 @@ $ cp /usr/share/wnn/ja_JP/wnnenvrc ~/etc/wnn/wnnenvrc
   setdic misc/supplement.dic     usr/@USR/supplement.h     1 1 0 - - 0
 
 これで良さそう。
+さらに、egg で supplement を使用するために ~/.eggrc で
+設定していたが kinput2 を先に起動すればなくてもどうにかなるみたい。
+$ /usr/bin/Wnn/wnnstat -E localhost
+の結果は少しおかしくなる。(環境名fujiiはいいが、fujiiRが変)
 
 [*1] FreeWnn/Wnn4.2/Eggを賢くするものたち
   http://www.remus.dti.ne.jp/~endo-h/wnn/
