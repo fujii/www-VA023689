@@ -24,9 +24,9 @@
   <input maxLength=256 size=40 name=q value="">
   <input type=hidden name=ie value="euc-jp">
   <input type=hidden name=hl value="ja">
-  <input type=radio name=lr value="lang_ja" checked> ja
-  <input type=radio name=lr value=""> all
   <input type=radio name=lr value="lang_en"> en
+  <input type=radio name=lr value=""> all
+  <input type=radio name=lr value="lang_ja" checked> ja
   <input type=submit value="検索">
 </form>
 
@@ -96,6 +96,7 @@
 <a href="http://www.yahoo.com/">Yahoo! USA</a>
 <br>
 
+
 <strong>software</strong>
 <a href="http://www.vector.co.jp/">Vector</a>
 <a href="http://www.forest.impress.co.jp/">窓の杜</a>
@@ -136,7 +137,13 @@
 <a href="http://www.2ch.net/2ch.html">2ちゃんねる</a>
 <a href="http://www.cgihost.com/cgi-bin/env.cgi">env.cgi</a>
 <a href="http://www.fj-news.org/">fj</a>
+<a href="http://www.doconavi.com/">どこなび/a>
+<a href="http://www.j-bus.co.jp/">発車オーライネット</a>
 <br>
+
+<!--
+<a href=""></a>
+-->
 
 <strong>GNU</strong>
 <a href="http://www.gnu.org/home.html">GNU</a>
