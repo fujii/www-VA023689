@@ -2,6 +2,128 @@
  <title>cymemo</title>
 <body>
  <pre>
+Date: 2002-07-25
+Subject: debian: gif 対応 xim非対応 emacs21 を作る
+Distribution: global
+
+debian の emacs21 は現在 gif に対応していない。
+待っていればいつか対応するだろうと思っていたが、
+待てど暮らせどいつまでたっても対応しない。
+もしかしたら私のところにだけ届いていないのだろうか。
+
+もう自分でコンパイルすることにした。
+以前から気になっているのだが、 Shift-SPC で XIM が起動する。
+どうやったら起動しなくすることができるか分からないので、
+ついでに configure オプションの --without-xim をしてみる。
+
+$ history
+
+ 5431  cd 
+ 5432  cd usr/src
+ 5434  mkdir debian
+ 5435  cd debian
+ 5437  \apt-get source emacs21
+ 5439  df
+ 5440  cd emacs21-21.2
+ 5442  apt-get install mailx libncurses5-dev texinfo liblockfile-dev libungif4-dev libtiff-dev xaw3dg-dev libpng2-dev libjpeg62-dev
+ 5443  ll
+ 5444  run-help dpkg-buildpackage
+ 5445  fg
+ 5446  dpkg-buildpackage -us -uc -rfakeroot
+ 5447  s
+ 5448  ls
+ 5449  sudo dpkg -i emacs21_21.2-1_i386.deb
+
+インストール直後に apt-get upgrade -u で emacs21 が
+新しくなっているのに気づく。
+これをインストールしてしまうとまたこの作業のやり直しになるのか。
+それとも dpkg -i をもう一度ですむのだろうか。
+
+まあ、とりあえず、これで gif と S-SPC の件は満足のいく結果となった。
+しかし、gif は画像によっては emacs をクラッシュさせるらしいので
+これからはいつ襲ってくるか分からないクラッシュにおびえながらの emacsライフだ。
+
+</pre><hr><pre>
+Date: 2002-07-25
+Subject: life: 23歳になりました
+Distribution: global
+
+(- 2002 1979)
+23
+
+; もう自分の年を覚えれません。
+
+</pre><hr><pre>
+Date: 2002-07-25
+Subject: bugfix, prog: 階乗の計算すらスッキリ書けないのか
+Distribution: global
+
+[2002-07-23]より、
+
+fact 0 = 1
+fact x = x * fact (x-1)
+
+と書けることは書けるが、スタックを消費してしまう。
+SICP でもこのことは詳しく説明されてました。
+
+英語を見るとまず日本語に訳しているようでは
+英語を会得することはできない。
+日本語を直に理解するように、英語を英語で理解しなくては。
+
+shiroさんが Haskell を () 付きに変換して理解している[*1]と
+あったが、私も同じ状態な気がする。
+関数型指向の思考が必要だ。
+
+その点で、初めてのプログラミング言語を何にするかは重要なのかも知れない。
+母語となるのだから。
+とはいっても、私はもう N88BASIC は忘れた。
+
+[*1] [haskell:33] 参加します。
+  <a href="http://www.mail-archive.com/haskell@sampou.quickml.com/msg00015.html">http://www.mail-archive.com/haskell@sampou.quickml.com/msg00015.html</a>
+
+</pre><hr><pre>
+Date: 2002-07-24
+Subject: prog: 理想の最適化 ?
+Distribution: global
+
+なぜ関数プログラミングは重要か
+<a href="http://www.sampou.org/haskell/article/whyfp.html">http://www.sampou.org/haskell/article/whyfp.html</a>
+
+とりあえず、読んでみた。
+α-βのところでソートの話があったが、
+あそこが理解できない。
+
+これを読んでてふと思いついたのが、
+遅延評価ならば、ミニマックスを書くだけで、
+自動的にアルファベータに最適化することできないのだろうか？
+0 * x = 0 なので x は評価する必要なし、みたいな感じで。
+これを入れてしまうと全ての * で 0 かどうかの条件分岐がついて
+しまうので余計遅くなるのかな。
+
+</pre><hr><pre>
+Date: 2002-07-24
+Subject: Haskell を勉強しよう
+Distribution: global
+
+私が関数型言語を理解できなかったのは
+中途半端な scheme のせいだといいがかりをつけて、
+Haskell を勉強しようと思う。
+
+最近よく思うことは「カルチャーショックを受けたい」とか
+「新しい考え方に出会いたい」ということ。
+そんな悟り体験ができるとうれしい。
+
+</pre><hr><pre>
+Date: 2002-07-24
+Subject: bookmark: Mailing List のアカイブのサービス
+Distribution: global
+
+既にこんなサービスがあるんですね。
+MList への参加が面倒な私にはいいサービス。
+
+<a href="http://www.mail-archive.com/haskell@sampou.quickml.com/maillist.html">http://www.mail-archive.com/haskell@sampou.quickml.com/maillist.html</a>
+
+</pre><hr><pre>
 Date: 2002-07-23
 Subject: cymemo: cymemo-grep と cymemo-head を gauche で書く
 Distribution: global
@@ -16,6 +138,8 @@ scheme の勉強がてら簡単なツールを作ってみた。
 こんな数学的なのを関数型言語で記述すると
 とてもいい感じに書けるのだが、
 現実のデータを処理するにのには向いていない気がする。
+
+bugfix: 階乗の計算はすっきりしない例だった [2002-07-25]
 
 単に修行不足なだけかもしれないので、まだがんばるつもり。
 
@@ -303,148 +427,6 @@ Distribution: global
 
 などなど。普通に発音する。規則が分からない。
 規則があるとするなら、周りの人がどう発音しているかってことでしょう。
-
-</pre><hr><pre>
-Date: 2002-07-12
-Subject: life: 台風6号の猛威を検証
-Distribution: global
-
-一昨日、昨日と台風6号が東の方で猛威を振るった。
-これは、現在の太平洋の気団が小さいために例年なら
-朝鮮の方へ押しやられるはずの6号が日本に来たこと。
-そして、梅雨前線を刺激したこと。
-この2点が今回の災害の原因らしい。
-
-</pre><hr><pre>
-Date: 2002-07-11
-Subject: life: インスタントコーヒー AGF Blendy を試す。
-Distribution: global
-
-研究室で飲むインスタントコーヒーを「AGF Blendy」に変えた。
-これは水でも溶けるのでアイスコーヒーを作るのが楽。
-
-ちなみに、私は研究室の水道水もがぶがぶも飲む。
-
-あと、学生なのでコストは重要。
-テレビCM で主婦が台所でアイスコーヒーを飲んで楽園気分を
-味わっているのがあるがあれは高そうなので、却下。
-でも今度、とりあえず価格を調べてみよう。
-
-カフェインパワーでレポートがんばる。
-
-</pre><hr><pre>
-Date: 2002-07-11
-Subject: bourne shell: test -n ${foo} の返り値
-Distribution: global
-
-大和さんの ChangeLog で見つけた bourne shell の「よくはまる落とし穴」。
-test -n は文字列の長さが0より大きいなら真。
-sh では 0 が真で、1 が偽。
-
-$ test -n ${foo} ;echo $?
-0
-$ test -n "${foo}" ;echo $?
-1
-$ test -n "";echo $?
-1
-$ test -n ;echo $?
-0
-$ echo ${foo}
-
-$
-
-はまりどころ解説
-
-${foo}で引数がないのと、
-test -n が真を返しているのがはまりどころでしょう。
-
-</pre><hr><pre>
-Date: 2002-07-11
-Subject: bookmark: はじめてのプログラミング言語
-Distribution: global
-
-情報処理, Vol.39, No.11 (1998.11)
-インタラクティブ・エッセイ
-はじめてのプログラミング言語
-<a href="http://www.ulis.ac.jp/~nakai/ipsj/9811/ie9811.html">http://www.ulis.ac.jp/~nakai/ipsj/9811/ie9811.html</a>
-
- * 今もって世界で最も多く使われているプログラミング言語は
-   COBOLと FORTRAN だそうである。
- * FORTRAN はおそらく今後 100年たっても世界最高の
-   プログラミング言語であり続けるのだろう。
- * scheme や prolog の試みはあまり成功したとは言えない
-
-読んでいて「成功」の定義が気になってしまった。
-またプログラム内蔵の話で、コンピュータではなくノイマン型コンピュータと
-書くべきだとまで、思ってしまった。
-
-こんなことに興味を持ったのも、今TAでC言語を1年生に教えているからでしょう。
-私としては理解して欲しいことはC言語の文法などではなく、
-プログラミングの考え方なのだが、どこまで伝わっているのだか。
-
-プログラミング教育で教えることはなんだろう。
-プログラミングの考え方、アルゴリズム、コンピュータの動作原理、
-楽しさ、そして即戦力だろうか。
-こりゃー、どれに比重を置くかで選ぶ言語も変わるな。
-
-</pre><hr><pre>
-Date: 2002-07-11
-Subject: prolog: is と = ではまる
-Distribution: global
-
-?- X is 3+1.
-
-X = 4 ;
-
-?- X = 3+1.
-
-X = 3+1 ;
-
-prolog の人には常識だけど、
-初心者は結構はまる気がする。
-FAQ ならぬ 「良くはまる落とし穴」とかないだろうか。
-高林さんのページには Unix のそういうのがあった。
-
- UNIXの落とし穴
- <a href="http://namazu.org/~satoru/computing/unix-sucks.html">http://namazu.org/~satoru/computing/unix-sucks.html</a>
-
-prolog は実に興味深い。
-言語が興味深いのではなく、その考え方だと思う。
-prolog は考え方が独特で、その考え方をするのが難しい。
-単に慣れの問題という気もするが。
-
-prolog の実用面を考えてみる。
-最近の日経コンピュータに prolog でシステムを構築した
-事例の小さな記事が載っていた。
-prolog は知識を蓄えるのにいいようだ。
-英単語の原型を求めるのに使えるのではないだろうか。
-例えば、 went, goes, gone の原型は go 。
-こんな感じで知識を蓄えるとできそう。
-他は思いつかない。
-
-私は新たに発見した知識をこのメモに日本語で記録している。
-これを prolog で蓄えるのは難しそうだ。
-数学などのきっちりした世界ではうまくいきそう。
-
-prolog はちょっとかじっただけなので、これくらいにしておこう。
-もう、prolog のレポートは勘弁してほしい。
-100行ちょっとのプログラムに 3日も費やしてしまった。
-特に、デバッグが慣れてないのか、難しい。
-
-</pre><hr><pre>
-Date: 2002-07-11
-Subject: book: ゾウの時間ネズミの時間
-Distribution: global
-
-ゾウの時間ネズミの時間 サイズの生物学
-本川達雄 中公新書 1992
-
-生物ってのは面白い。
-でも、学校の生物の授業は面白いと思わなかった。
-私の心拍は人より早いので、寿命も短そうだ。
-
-<a href="http://www.athome.co.jp/academy/biology/bio03.html">http://www.athome.co.jp/academy/biology/bio03.html</a>
-によると、人の寿命は26.3才。
 
 </pre><hr><pre>
  </pre>
