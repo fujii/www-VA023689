@@ -54,7 +54,7 @@
  <li>MyD --- A dictionary look up program for POSIX<br>
  MyD uses <a href="http://www-nagao.kuee.kyoto-u.ac.jp/member/tsuchiya/sdic/data/gene.html">
  GENE general English-Japanese dictionary</a>.
- GENE is compiled by Kurumi-san, and free to use financially.
+ GENE is compiled by Kurumi-san, and free to use financially. Thanks to Kurumi-san.
  MyD was moved to
  <a href="http://www.vector.co.jp/soft/unix/writing/se161530.html">vector.co.jp</a>.</li>
 
