@@ -2,6 +2,208 @@
  <title>cymemo</title>
 <body>
  <pre>
+Date: 2002-06-29
+Subject: kinput2 と FreeWnn で辞書を追加
+Distribution: global
+
+私家版pubdic+補遺[*1]をインストールして使用している。
+しかし、kinput2 &amp; を .xsession に追加してから
+どうも egg で supplement が有効にならなかった。
+
+これはどうやら、kinput2 で supplement を使用していない
+ことが問題でした。そこで kinput2 でも supplement を
+使用する方法。
+
+~/.Xresources に下の1行追加して、 xrdb .Xresources
+
+  Kinput2*CcWnn.wnnEnvrc4: /home/fujii/etc/wnn/wnnenvrc
+
+次に
+
+$ cp /usr/share/wnn/ja_JP/wnnenvrc ~/etc/wnn/wnnenvrc
+
+してそのファイルに下の1行追加。
+
+  setdic misc/supplement.dic     usr/@USR/supplement.h     1 1 0 - - 0
+
+これで良さそう。
+
+[*1] FreeWnn/Wnn4.2/Eggを賢くするものたち
+  <a href="http://www.remus.dti.ne.jp/~endo-h/wnn/">http://www.remus.dti.ne.jp/~endo-h/wnn/</a>
+
+</pre><hr><pre>
+
+Date: 2002-06-29
+Subject: zsh: 補間候補をカラー化
+Distribution: global
+
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+</pre><hr><pre>
+
+Date: 2002-06-29
+Subject: bookmark, scheme: scheme で XML
+Distribution: global
+
+<a href="http://okmij.org/ftp/Scheme/SXML.html">http://okmij.org/ftp/Scheme/SXML.html</a>
+
+乳の詫び状(2002/04/18)[*1]で河合さんの
+メールが取り上げられてる。それで知る。
+
+[*1] 乳の詫び状(2002/04/18)
+   <a href="http://www.asahi-net.or.jp/~Ki4S-nkmr/wabijo54.html">http://www.asahi-net.or.jp/~Ki4S-nkmr/wabijo54.html</a>
+</pre><hr><pre>
+
+Date: 2002-06-29
+Subject: bookmark, scheme: scheme で perl 風プログラミング (perl.scm)
+Distribution: global
+
+[*2]より
+
+    毎日仕様変更のリクエストがあるような環境ではPerlでべ
+    たべたにコーディングした方が速いということに気付き、
+
+上の文を読んだ時私がふと思った「大域変数 $_ のようなものを持つ
+文字列操作ライブラリがあればlispでも同じことでは」と。
+
+これはすでに実現されている方がいらっしゃいました。
+Perl.scm [*1]。
+; ところでこのページ、暗背景なのに私には見づらい。
+; 暗背景ってよくないのかな。
+
+「人気の言語を作るには」[*3]にあるようにライブラリが重要なのだと思う。
+perl にはテキスト処理で便利なライブラリを持っているのだと思う。
+
+
+[*1] (Scheme) (Lisp)
+    <a href="http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/">http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/</a>
+
+[*2] プロダクション環境におけるScheme/Lispの利用事例
+    <a href="http://www.shiro.dreamhost.com/scheme/experience-j.html">http://www.shiro.dreamhost.com/scheme/experience-j.html</a>
+
+[*3] 人気の言語を作るには ---Being Popular
+    <a href="http://www.shiro.dreamhost.com/scheme/trans/being-popular-j.html">http://www.shiro.dreamhost.com/scheme/trans/being-popular-j.html</a>
+
+</pre><hr><pre>
+
+Date: 2002-06-29
+Subject: emacs: emacs21で日本語が印刷できない
+Distribution: global
+
+(setq ps-multibyte-buffer 'non-latin-printer)
+
+として、C-u M-x ps-print-buffer をすると
+変な postscript が出力される。
+
+<a href="http://tsukuba.m17n.org/mule-ja-archive/2002-3/msg00008.html">http://tsukuba.m17n.org/mule-ja-archive/2002-3/msg00008.html</a>
+
+にあるように、
+
+(require 'ps-mule)
+(defalias 'ps-mule-header-string-charsets 'ignore)
+
+も追加すると、本文はでてくる。
+
+元に戻して、
+
+<a href="http://tsukuba.m17n.org/mule-ja-archive/2001-11/msg00011.html">http://tsukuba.m17n.org/mule-ja-archive/2001-11/msg00011.html</a>
+
+より、postscript をエディタでいじって、
+
+  /h0 14.000000 /Ryumin-Light-H DefAsciiFontMule 
+
+を
+
+  /h0 14.000000 /Ryumin-Light-EUC-H DefAsciiFontMule 
+
+にすると、本文の日本語はうまくいく。また、
+
+<a href="http://lists.debian.or.jp/debian-users/200111/msg00248.html">http://lists.debian.or.jp/debian-users/200111/msg00248.html</a>
+
+の方法で、コメントアウトしてもうまくいく。
+
+  %/h0 14.000000 /Ryumin-Light-H DefAsciiFontMule 
+
+</pre><hr><pre>
+
+Date: 2002-06-29
+Subject: life: 犬猫立入禁止を設置
+Distribution: global
+
+私の車のボンネットと屋根が猫の通り道となってしまった。
+ナフコを「犬猫立入禁止」を購入して、昨夜設置。
+匂いが強烈、手で触ると匂いがつくほど。
+
+今朝、新たな足跡が車についていた。
+設置場所の変更が必要か。
+
+</pre><hr><pre>
+
+Date: 2002-06-28
+Subject: hcu: Anir mouse の論文発表
+Distribution: global
+
+[2002-06-21]の Anir mouse の発表終了。
+単なるジョイスティックかと思いきや。
+
+  Anir mouse のデザインの際、少しの修正でさえ、
+  前腕の伸筋の負担に great impact をもたした。
+
+どうやら、綿密、精巧にデザインされている予感。
+
+マウスとしての性能はMicrosoftマウスより劣り、
+トラックボールより優るそうだ。
+
+</pre><hr><pre>
+
+Date: 2002-06-28
+Subject: unix: $HOME に etc を
+Distribution: global
+
+ホームディレクトリの下に etc と var が欲しいとよく思う。
+そして、$HOME に現在63個もあるドットファイルとドットディレクトリ(?)を
+そこに移動したい。
+
+$ alias cd='HOME=$HOME cd'
+$ export HOME=$HOME/etc
+
+とすれば、うまくいくのではとふと思ったが恐くてできない。
+
+~/{etc,var} を作る利点を考えてみる
+
+ - rm .* の被害者これ以上出さずにすむかも
+ - alias ls='ls -a' としやすい
+ - バックアップが楽になるかも
+
+問題点
+ 
+ - ./configure --prefix=$HOME としている人は etc が衝突する
+
+ちなみに既に ~ の下に bin と usr と tmp はある。opt はない。
+よって普段は、 ./configure --prefix=$HOME/usr って感じでやってる。
+
+</pre><hr><pre>
+
+Date: 2002-06-27
+Subject: emacs, lookup: lookup-word で日本語の単語を切り出す
+Distribution: global
+
+$ apt-get install kakasi
+
+(setq lookup-use-kakasi t)
+
+ちょっと使ってみたところ、とてもいい感じ。
+
+</pre><hr><pre>
+
+Date: 2002-06-25
+Subject: cymemo: URL の正規表現
+Distribution: global
+
+<a href="http://www.nais.to/~yto/clog/2002-06.html#2002-06-24">http://www.nais.to/~yto/clog/2002-06.html#2002-06-24</a>
+<a href="http://www.din.or.jp/~ohzaki/perl.htm#httpURL">http://www.din.or.jp/~ohzaki/perl.htm#httpURL</a>
+
+</pre><hr><pre>
 
 Date: 2002-06-24
 Subject: debian: debuan を読んでみる
@@ -52,7 +254,7 @@ Distribution: global
 </pre><hr><pre>
 
 Date: 2002-06-21
-Subject: Anir mouse の論文を読んでる
+Subject: hcu: Anir mouse の論文を読んでる
 Distribution: global
 
 授業で英語の論文を読まされている。
@@ -1063,7 +1265,7 @@ Webでも読めるので読んでみて下さい。
 </pre><hr><pre>
 
 Date: 2002-05-14
-Subject: joke: zshの読み
+Subject: joke, zsh: zshの読み
 Distribution: global
 
 ざっしゅ (雑種)

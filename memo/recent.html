@@ -2,206 +2,206 @@
  <title>cymemo</title>
 <body>
  <pre>
-
-Date: 2002-06-24
-Subject: debian: debuan を読んでみる
+Date: 2002-06-29
+Subject: kinput2 と FreeWnn で辞書を追加
 Distribution: global
 
-debian の同人誌でぶあん[*1]をすこし読んでみた。
-第2回でぶあん AWARDの「Gary Thomasと賢者の石」が面白い。
-暇な時に続きを読も。
+私家版pubdic+補遺[*1]をインストールして使用している。
+しかし、kinput2 &amp; を .xsession に追加してから
+どうも egg で supplement が有効にならなかった。
 
-[*1] Deぶan BNU/Linux不徹底入門
-    <a href="http://www.debuan.org/">http://www.debuan.org/</a>
+これはどうやら、kinput2 で supplement を使用していない
+ことが問題でした。そこで kinput2 でも supplement を
+使用する方法。
 
-BNUは「 Busu is Not Umemiya-annna 」の略
+~/.Xresources に下の1行追加して、 xrdb .Xresources
+
+  Kinput2*CcWnn.wnnEnvrc4: /home/fujii/etc/wnn/wnnenvrc
+
+次に
+
+$ cp /usr/share/wnn/ja_JP/wnnenvrc ~/etc/wnn/wnnenvrc
+
+してそのファイルに下の1行追加。
+
+  setdic misc/supplement.dic     usr/@USR/supplement.h     1 1 0 - - 0
+
+これで良さそう。
+
+[*1] FreeWnn/Wnn4.2/Eggを賢くするものたち
+  <a href="http://www.remus.dti.ne.jp/~endo-h/wnn/">http://www.remus.dti.ne.jp/~endo-h/wnn/</a>
 
 </pre><hr><pre>
 
-Date: 2002-06-24
-Subject: emacs: FUJII-print-buffer
+Date: 2002-06-29
+Subject: zsh: 補間候補をカラー化
 Distribution: global
 
-こんな感じになった。
-しばらく、これで試用してみよ。
-
-(define-key global-map "\C-cp" 'FUJII-print-buffer)
-
-(defun FUJII-print-buffer ()
-  (interactive)
-  (let ((cmd (read-string "Shell Command: "
-			  (concat "a2psj -l " (shell-quote-argument (buffer-name)) " |lpr"))))
-    (save-excursion
-      (mark-whole-buffer)
-      (shell-command-on-region
-       (region-beginning) (region-end) cmd))))
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 </pre><hr><pre>
 
-Date: 2002-06-24
-Subject: life: 親が広島に来た
+Date: 2002-06-29
+Subject: bookmark, scheme: scheme で XML
 Distribution: global
 
-土曜に親と妹が来た。
-父とガーデンにて焼肉を食らう。
-カルビフェアでカルビが半額の325円くらいだった。それを5皿。
-海の幸盛併せ、生ビール、イカとタコの串焼き、キムチ。
+<a href="http://okmij.org/ftp/Scheme/SXML.html">http://okmij.org/ftp/Scheme/SXML.html</a>
 
-三人はサッカーを見て帰っていった。
+乳の詫び状(2002/04/18)[*1]で河合さんの
+メールが取り上げられてる。それで知る。
+
+[*1] 乳の詫び状(2002/04/18)
+   <a href="http://www.asahi-net.or.jp/~Ki4S-nkmr/wabijo54.html">http://www.asahi-net.or.jp/~Ki4S-nkmr/wabijo54.html</a>
+</pre><hr><pre>
+
+Date: 2002-06-29
+Subject: bookmark, scheme: scheme で perl 風プログラミング (perl.scm)
+Distribution: global
+
+[*2]より
+
+    毎日仕様変更のリクエストがあるような環境ではPerlでべ
+    たべたにコーディングした方が速いということに気付き、
+
+上の文を読んだ時私がふと思った「大域変数 $_ のようなものを持つ
+文字列操作ライブラリがあればlispでも同じことでは」と。
+
+これはすでに実現されている方がいらっしゃいました。
+Perl.scm [*1]。
+; ところでこのページ、暗背景なのに私には見づらい。
+; 暗背景ってよくないのかな。
+
+「人気の言語を作るには」[*3]にあるようにライブラリが重要なのだと思う。
+perl にはテキスト処理で便利なライブラリを持っているのだと思う。
+
+
+[*1] (Scheme) (Lisp)
+    <a href="http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/">http://www.geocities.co.jp/SiliconValley-PaloAlto/7043/</a>
+
+[*2] プロダクション環境におけるScheme/Lispの利用事例
+    <a href="http://www.shiro.dreamhost.com/scheme/experience-j.html">http://www.shiro.dreamhost.com/scheme/experience-j.html</a>
+
+[*3] 人気の言語を作るには ---Being Popular
+    <a href="http://www.shiro.dreamhost.com/scheme/trans/being-popular-j.html">http://www.shiro.dreamhost.com/scheme/trans/being-popular-j.html</a>
 
 </pre><hr><pre>
 
-Date: 2002-06-21
-Subject: Anir mouse の論文を読んでる
+Date: 2002-06-29
+Subject: emacs: emacs21で日本語が印刷できない
 Distribution: global
 
-授業で英語の論文を読まされている。
-人間工学にもとづいたマウスで Anir mouse という。
-しかし、その外見はネズミというよりただのジョイスティックで
-得に目新しさは感じられない。
-どこがエルゴノミクスかというと、従来のマウスは右の上腕を
-90度半時計回りにひねり続けて使用するが、
-ジョイスティックは腕を前に出してそのまま自然と
-握れるということらしい。
+(setq ps-multibyte-buffer 'non-latin-printer)
 
-<a href="http://www.zdnet.co.jp/macweek/9711/20/n_mouse.html">http://www.zdnet.co.jp/macweek/9711/20/n_mouse.html</a>
+として、C-u M-x ps-print-buffer をすると
+変な postscript が出力される。
 
-発表は28日。だから、それまでは忙しい。
+<a href="http://tsukuba.m17n.org/mule-ja-archive/2002-3/msg00008.html">http://tsukuba.m17n.org/mule-ja-archive/2002-3/msg00008.html</a>
+
+にあるように、
+
+(require 'ps-mule)
+(defalias 'ps-mule-header-string-charsets 'ignore)
+
+も追加すると、本文はでてくる。
+
+元に戻して、
+
+<a href="http://tsukuba.m17n.org/mule-ja-archive/2001-11/msg00011.html">http://tsukuba.m17n.org/mule-ja-archive/2001-11/msg00011.html</a>
+
+より、postscript をエディタでいじって、
+
+  /h0 14.000000 /Ryumin-Light-H DefAsciiFontMule 
+
+を
+
+  /h0 14.000000 /Ryumin-Light-EUC-H DefAsciiFontMule 
+
+にすると、本文の日本語はうまくいく。また、
+
+<a href="http://lists.debian.or.jp/debian-users/200111/msg00248.html">http://lists.debian.or.jp/debian-users/200111/msg00248.html</a>
+
+の方法で、コメントアウトしてもうまくいく。
+
+  %/h0 14.000000 /Ryumin-Light-H DefAsciiFontMule 
 
 </pre><hr><pre>
 
-Date: 2002-06-20
-Subject: 言葉: なにげに
+Date: 2002-06-29
+Subject: life: 犬猫立入禁止を設置
 Distribution: global
 
-「なにげに」を漢字変換できなくて辞書を引く、
-「なにげなく」が正しくて、現代用語の基礎知識によると
-「なにげに」は〔若者用語〕だそうです。
+私の車のボンネットと屋根が猫の通り道となってしまった。
+ナフコを「犬猫立入禁止」を購入して、昨夜設置。
+匂いが強烈、手で触ると匂いがつくほど。
+
+今朝、新たな足跡が車についていた。
+設置場所の変更が必要か。
 
 </pre><hr><pre>
 
-Date: 2002-06-20
-Subject: 言葉: comment out
+Date: 2002-06-28
+Subject: hcu: Anir mouse の論文発表
 Distribution: global
 
-普段何気なくつかっていた「コメントアウト」ということばの
-意味に自身がなくなった。
-もしかするとコメントを外すことを「コメントアウト」というのでは！
+[2002-06-21]の Anir mouse の発表終了。
+単なるジョイスティックかと思いきや。
 
-"The Jargon File" を引くと "comment out" でちゃんと載ってた。
-やっぱり、コメント化することでした。
-役に立ちました &gt; Jargon File
+  Anir mouse のデザインの際、少しの修正でさえ、
+  前腕の伸筋の負担に great impact をもたした。
+
+どうやら、綿密、精巧にデザインされている予感。
+
+マウスとしての性能はMicrosoftマウスより劣り、
+トラックボールより優るそうだ。
 
 </pre><hr><pre>
 
-Date: 2002-06-20
-Subject: 両対数グラフについて理解する
+Date: 2002-06-28
+Subject: unix: $HOME に etc を
 Distribution: global
 
-両対数グラフだと
-  y=x
-  y=x^2
-  y=x^3
-などは直線になるんですね。
+ホームディレクトリの下に etc と var が欲しいとよく思う。
+そして、$HOME に現在63個もあるドットファイルとドットディレクトリ(?)を
+そこに移動したい。
 
-echo 'set logscale;plot [0.1:1000] [0.1:1000] x,x**2,x**3,2**x;pause 1000'|gnuplot
+$ alias cd='HOME=$HOME cd'
+$ export HOME=$HOME/etc
 
-こんなことはきっと常識ですね。
-</pre><hr><pre>
+とすれば、うまくいくのではとふと思ったが恐くてできない。
 
-Date: 2002-06-20
-Subject: emacs: バッファの印刷
-Distribution: global
+~/{etc,var} を作る利点を考えてみる
 
-カスタマイズ変数を調べるのに疲れたので、結局書く。
+ - rm .* の被害者これ以上出さずにすむかも
+ - alias ls='ls -a' としやすい
+ - バックアップが楽になるかも
 
-(defun fujii-print-buffer ()
-  (interactive)
-  (save-excursion
-    (mark-whole-buffer)
-    (shell-command-on-region
-     (region-beginning) (region-end)
-     (concat "a2psj -l " (shell-quote-argument (buffer-name)) " |lpr"))))
+問題点
+ 
+ - ./configure --prefix=$HOME としている人は etc が衝突する
 
-ポートレイトやワイドなど、もっと機能が欲しい気もする。
-しばらくは忙しいので書かないように自粛しなくては。
+ちなみに既に ~ の下に bin と usr と tmp はある。opt はない。
+よって普段は、 ./configure --prefix=$HOME/usr って感じでやってる。
 
 </pre><hr><pre>
 
-Date: 2002-06-20
-Subject: emacs: バッファの印刷のうまくいかない
+Date: 2002-06-27
+Subject: emacs, lookup: lookup-word で日本語の単語を切り出す
 Distribution: global
 
-command-apropos でそれらしきコマンドは4つ検索にひっかかった。
+$ apt-get install kakasi
 
-ebnf-print-buffer
-print-buffer
-ps-print-buffer
-ps-print-buffer-with-faces
+(setq lookup-use-kakasi t)
 
-print-buffer はどうも pr に -h でヘッダ文字列を指定してる。
-ps-print-buffer は日本語が化ける。
-ps-print-buffer-with-faces も日本語が化ける。
-
-どれも、うまくいかない。
+ちょっと使ってみたところ、とてもいい感じ。
 
 </pre><hr><pre>
 
-Date: 2002-06-14
-Subject: hcu: 6月14日は開学記念日で休講
+Date: 2002-06-25
+Subject: cymemo: URL の正規表現
 Distribution: global
 
-ついでに今日はサッカーW杯日韓大会Hグループ最終戦。
-みんなは家でTV観戦かな。
-</pre><hr><pre>
-
-Date: 2002-06-12
-Subject: latex: moreverb: タブ &amp; 行番号対応 テキストファイルそのまま挿入
-Distribution: global
-
-\usepackage{moreverb}
-
-\verbatimtabinput{filename.txt}
-\listinginput[10]{1}{filename.txt}
-
-このページの解説が素晴らしい。
-<a href="http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex2/moreverb.html">http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex2/moreverb.html</a>
-
-このページ、大学の教授のページとは思えないほどクオリティが高い。
-
-</pre><hr><pre>
-
-Date: 2002-06-12
-Subject: latex: verbatiminput: テキストファイルをそのまま取り込む
-Distribution: global
-
-プログラムのソースや LaTeX のソースなどを
-LaTeX に取り込みたい。
-
-いままでは \begin{verbatim} を使っていたが、
-これはあまりスマートでない。そこで /usr/share/texmf を
-ひたすらして grep して見つけた。
-
-まず、プリアンブルに以下を追加。
-
-  \usepackage{verbatim}
-
-そして挿入したいところにこんな感じ。
-
-  \verbatiminput{filename.txt}
-  \verbatiminput*{filename.txt}
-
-どうも、TAB が無視されているみたい。
-希望としてはスペース8個にでも置換して欲しい。
-あと、行番号をオプションで欲しいところです。
-また、ページの終りで改ページはされるが、
-行の終りで改行がされず、つき抜ける。
-
-Webを検索すると \verbatimlisting とか、
-\verbatimfiles なんてのもあるみたい。
-
-</pre><hr><pre>
-
+<a href="http://www.nais.to/~yto/clog/2002-06.html#2002-06-24">http://www.nais.to/~yto/clog/2002-06.html#2002-06-24</a>
+<a href="http://www.din.or.jp/~ohzaki/perl.htm#httpURL">http://www.din.or.jp/~ohzaki/perl.htm#httpURL</a>
  </pre>
 </body>
 </html>
