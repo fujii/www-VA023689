@@ -2,6 +2,424 @@
  <title>cymemo</title>
 <body>
  <pre>
+Date: 2002-07-08
+Subject: 言葉, bugfix: 勝ち組と負け組はブラジルだった
+Distribution: global
+
+今日[2002-07-08]なんだけど、修正。
+
+しかし、殺人まで発展する大問題だったとは。
+居酒屋での宇宙人はいる派といない派程度のものだと思っていた。
+
+「勝ち組」という言葉を違う意味で使用するのは
+別に間違いではないのかもしれない。
+ただ単に以前からあった言葉と偶然の一致をしただけなのかも知れない。
+ただ、間違いから生じたとしてもそれは新たな意味が加わったというだけのこと。
+
+「世間擦れ」なんかも、勘違いから新たな言葉「世間ずれ」が
+生まれたと考えた方がいい。
+
+自然言語は生き物だ。
+
+あら、「自然言語」って広辞苑で引いたら
+
+  しぜん‐げんご【自然言語】
+   (natural language) 人間が特別な訓練なしに自然に
+  習得し使用する言語。日本語・英語など。←→人工言語。
+
+「母語」の説明の様にも解釈できるなー。
+でも、対義語としては「人工言語」となってるなー。
+
+</pre><hr><pre>
+
+Date: 2002-07-08
+Subject: bookmark: タッチタイプ練習ソフト「キーボードマスター」
+Distribution: global
+
+小学生向けのタッチタイプ練習ソフトを研究テーマに
+している菅野くんと田熊くんが「キーボードマスター」
+をかなりほめていた。
+
+多分このことでしょう。
+
+Keyboard Master
+<a href="http://www.plato-web.com/software/km/km.htm">http://www.plato-web.com/software/km/km.htm</a>
+
+「人間工学に基づいてデザイン」というのにそそられる。
+用語として「ブラインドタッチ」を使用しているのが
+ちょっと気になった。
+
+</pre><hr><pre>
+
+Date: 2002-07-08
+Subject: 言葉, bookmark: 間違いが常識になってる言葉
+Distribution: global
+
+検索してて面白いページを見つけた。
+
+間違いが常識になってる言葉
+<a href="http://piza.2ch.net/log2/gengo/kako/956/956221023.html">http://piza.2ch.net/log2/gengo/kako/956/956221023.html</a>
+
+とても勉強になる。思わずローカルにコピー。
+読み通す際に一体何度辞書を引いたことか。
+
+勝ち組と負け組の話はどこかで聞いたことがあるが
+思い出せなかった。
+元の意味は戦時中正しい情報が伝わってこない中、
+日本が勝っているか負けているかで意見が分かれたことらしい。
+
+結局勉強になっても私はすぐに忘れてしまうってことですな。
+
+あと有名な例だとは思うけど、
+「世間ずれ」はずれているのではなく、擦れて(すれて)いる。
+
+でも、今度こんなテーマの本を読もうかな。
+あと、言語学板@2ch.net もいってみよう。
+
+bug: 戦後のブラジルでの日系移民の話でした。
+  <a href="http://www.jic-gifu.or.jp/np/newspaper/kikaku/niji/niji24.htm">http://www.jic-gifu.or.jp/np/newspaper/kikaku/niji/niji24.htm</a>
+  <a href="http://www.geocities.com/Tokyo/Harbor/4114/l1japan.html">http://www.geocities.com/Tokyo/Harbor/4114/l1japan.html</a>
+  <a href="http://www8.ocn.ne.jp/~shigeo/brazil.html">http://www8.ocn.ne.jp/~shigeo/brazil.html</a>
+
+</pre><hr><pre>
+
+Date: 2002-07-07
+Subject: 言葉: 目一杯を「めいいっぱい」だと思ってました
+Distribution: global
+
+「めいいっぱい」って方言あるのだろうか？
+どうして私は勘違いをしていたのだろう。
+
+多分、「黄」を「きい」と発音してしまうのと似たような原理だと、
+とりあえず勝手に解釈しておこ。
+
+ちなみに私は「雰囲気」は「ふいんき」派。だんぜん。
+
+検索してみたら「さざんか」は「山茶花」でもとは「さんさか」らしい。
+
+「うろおぼえ うるおぼえ」で検索して88件ひっかかるのは
+今度暇な時にでも調査しよう。
+
+おお、「目一杯 めいいっぱい」でもヒットする。
+
+</pre><hr><pre>
+
+Date: 2002-07-07
+Subject: emacs: winner-mode と windmove
+Distribution: global
+
+winner-mode ってのが emacs に付いている。
+window configuration の変更の undo と redo ができる。
+M-x winner-mode で起動しておいて、
+undo したい時に C-x &lt;left&gt; でできる。
+
+どんな人が使うのだろう？
+Emacs のフレームを目一杯大きくして
+その中でウィンドウを細かく分割している人には
+window configuration がひょんなことから崩れた時に
+undo できると便利かもしれない。
+
+winner-mode を info で調べて windmove とやらを発見した。
+これまた以前にこんなのあると面白いかもと思ったものだった。
+とりあえず、.emacs.el に追加してみる。
+
+(define-key global-map "\M-N" 'windmove-down)
+(define-key global-map "\M-P" 'windmove-up)
+(define-key global-map "\M-B" 'windmove-left)
+(define-key global-map "\M-F" 'windmove-right)
+
+lookup を使うと window が縦3分割になるので、
+その時に down と up が役に立つかも。
+
+</pre><hr><pre>
+
+Date: 2002-07-07
+Subject: scheme, bookmark: ng + scheme = ngscm
+Distribution: global
+
+広大の角川裕次さんが作った ng で scheme開発環境。
+
+プログラミング言語 Scheme 教育環境
+<a href="http://aten.aial.hiroshima-u.ac.jp/Reprints/NGSCM/ngscm.html">http://aten.aial.hiroshima-u.ac.jp/Reprints/NGSCM/ngscm.html</a>
+
+Guile Emacs の scheme interaction mode と
+似たような感じを実現しているのかな。
+
+<a href="http://sourceforge.net/projects/gemacs/">http://sourceforge.net/projects/gemacs/</a>
+
+</pre><hr><pre>
+
+Date: 2002-07-07
+Subject: 大和正武さんの ChangeLog を読んだ
+Distribution: global
+
+<a href="http://www.gyve.org/~jet/ChangeLog0">http://www.gyve.org/~jet/ChangeLog0</a>
+<a href="http://www.gyve.org/~jet/ChangeLog1">http://www.gyve.org/~jet/ChangeLog1</a>
+<a href="http://www.gyve.org/~jet/ChangeLog">http://www.gyve.org/~jet/ChangeLog</a>
+
+前々からどうして automake では make rpm とできない
+ないのだろうと思っていたら autopack があるみたい。
+
+autopack
+<a href="http://www.gyve.org/~jet/autopack/">http://www.gyve.org/~jet/autopack/</a>
+
+</pre><hr><pre>
+
+Date: 2002-07-07
+Subject: memo: 過去の日記の間違いの修正
+Distribution: global
+
+玄米フレークを麦芽フレークと勘違いしていた。
+[2002-07-01] に麦芽と書いている。
+こういう時にどのように修正するかで迷う。
+いままでも、何度か修正したことはあるが、
+修正は過去を書き換えるようで避けた方がいい気がする。
+
+どうするのがベストか分からないが
+とりあえずこの件は修正を付け加えてみた。
+「誤り」をリーダーズで引くと先頭に「bug」と出てきた。
+typo じゃないし、bug でいい感じ。
+
+</pre><hr><pre>
+
+Date: 2002-07-06
+Subject: scheme: SRFI の発音は スーフィ or サーフィ?
+Distribution: global
+
+SRFI(Scheme Request for Implementation)の発音について
+公式FAQ[*1]に書いてあった。
+
+surfie ってなんて発音するのだろう？
+スーフィ かな サーフィ かな？
+
+多分、波乗り野郎(surfie)の サーフィ でしょう。
+
+
+[*1] Scheme Request for Implementation - FAQ
+   <a href="http://srfi.schemers.org/srfi-faq.html">http://srfi.schemers.org/srfi-faq.html</a>
+
+</pre><hr><pre>
+
+Date: 2002-07-06
+Subject: scheme: gauche をインストール
+Distribution: global
+
+コンパイルメッセージを見ながら、
+なんか懐かしさを感じてしまった。
+debian を使いだして、make することが減ってしまった。
+
+まだ readline は組み込まれてないんだ。
+guile の快適変数名補間 &amp; 履歴を味わってしまった身としては辛い。
+
+</pre><hr><pre>
+
+Date: 2002-07-06
+Subject: scheme: 順列のプログラム permutation
+Distribution: global
+
+mpeg video player の一件で Unix のツールとして
+順列のプログラムが必要なのでは思い、書いてみた。
+
+$ ./permutation foo bar baz
+baz foo bar
+baz bar foo
+bar foo baz
+bar baz foo
+foo bar baz
+foo baz bar
+$
+
+scheme の得意分野と思っていたら、
+意外と苦戦してしまった。
+これで、mpeg の正規表現ができると思ってたら、
+
+$ ./permutation mpeg video player|sed -e 's/.*/(\0)/' -e 's/ /.*/g'|tr \\n \|
+(player.*mpeg.*video)|(player.*video.*mpeg)|(video.*mpeg.*player)|(video.*player.*mpeg)|(mpeg.*video.*player)|(mpeg.*player.*video)|
+
+最後の "|" が邪魔だけど、いい方法が分かんない。
+
+改良点としては数値を受けとって組み合わせに用いるの要素数を指定できるといい。
+また、姉妹ツールとして combination ってのはどうだろう。
+
+しかし、使い道が思いつかない。
+
+</pre><hr><pre>
+
+Date: 2002-07-06
+Subject: debian: apt-cache search は and 結合
+Distribution: global
+
+[2002-07-05]昨日のは
+
+  $ apt-cache search mpeg video player
+
+で済む話でした。
+
+
+</pre><hr><pre>
+
+Date: 2002-07-05
+Subject: debian: mpegビデオを再生したい
+Distribution: global
+
+$ apt-cache search mpeg 
+
+では、mp3プレーヤにまでヒットして多すぎ。
+
+$ ((apt-cache search mpeg;apt-cache search video)|sort|uniq -d;apt-cache search player)|sort|uniq -d
+
+よって、mpeg と video と player で検索。
+もっといい検索方法はないものだろうか。
+
+vlc と smpeg-plaympeg と xmovie と xanim をためす。
+xanim だけ画像がかなり乱れたが、他はいい感じ。
+サウンドカードの設定ができていないため、音声の再生は確認できず。
+
+</pre><hr><pre>
+
+Date: 2002-07-05
+Subject: emacs: rectangle のコピー、連番挿入
+Distribution: global
+
+Eamcs@UNIX板@2ch.netにて連番が話題になり、
+以下のURLが紹介されていた。
+
+<a href="http://www.taiyaki.org/diary/200103.html#2001030900">http://www.taiyaki.org/diary/200103.html#2001030900</a>
+<a href="http://www.taiyaki.org/elisp/rectangle/src/rectangle.el">http://www.taiyaki.org/elisp/rectangle/src/rectangle.el</a>
+
+前から疑問だが、どうして rectangle のコピーは
+emacs に付属してないのだろう？
+
+</pre><hr><pre>
+
+Date: 2002-07-04
+Subject: hcu: IBM ThinkPad X22 が到着
+Distribution: global
+
+キーボードには [ミ田]キー(windows キー)がないんですね。
+W-e でエクスプローラを起動するのが手早くて好きだったけど、
+やっぱり無いほうがいい。
+
+パソコンにノートパソコンにSunBlade1000を使い放題。
+実にコンピュータ環境はいい。
+後は、研究をがんばらなくては。
+
+</pre><hr><pre>
+
+Date: 2002-07-04
+Subject: bookmark: はてなアンテナ
+Distribution: global
+
+[*1]見て知る。
+
+はてなアンテナ
+<a href="http://a.hatena.ne.jp/">http://a.hatena.ne.jp/</a>
+
+My アンテナ欲しいなー、と思ってたところにいいサービス。
+目のつけどころがいいですね。
+
+早速、アカウントを作る。
+10個ほど登録。
+その際、2程ロボットを拒否された。
+こんな問題が発生するのか。
+
+[*1] <a href="http://www.nais.to/~yto/clog/2002-07.html#2002-07-03">http://www.nais.to/~yto/clog/2002-07.html#2002-07-03</a>
+
+</pre><hr><pre>
+
+Date: 2002-07-04
+Subject: memo: navi2ch によるメモ技術
+Distribution: global
+
+Emacs＠unix板にて新たなメモ法を報告した方がいる。
+
+<a href="http://pc.2ch.net/test/read.cgi/unix/1021734785/351">http://pc.2ch.net/test/read.cgi/unix/1021734785/351</a>
+
+    2ch互換の俺用BBSを作成
+    -&gt; Navi2chで開いてtodo板にやることのスレを立てる
+    -&gt; 進捗状況をレスする。
+    -&gt; 終わったらスレを d する
+    これ最強。ブラウザでも閲覧できるしね。
+
+この方法ならスレッドが超整理法に出てた時間のスタックになってる。
+これすごいかも。
+問題はポケットひとつの原則に反していることかな。
+
+</pre><hr><pre>
+
+Date: 2002-07-04
+Subject: bookmark: 29プログラミング言語の比較
+Distribution: global
+
+以前、./ で話題になっていたプログラミング言語のバトルロワイアル。
+最近のマイブームである lisp, scheme の結果を見たくなったので、探す。
+
+<a href="http://slashdot.jp/article.pl?sid=01/07/04/0622234&amp;mode=flat">http://slashdot.jp/article.pl?sid=01/07/04/0622234&amp;mode=flat</a>
+<a href="http://www.bagley.org/~doug/shootout/">http://www.bagley.org/~doug/shootout/</a>
+
+bash の reverse file のソースが1行で
+tac
+って、反則すれすれ。
+
+</pre><hr><pre>
+
+Date: 2002-07-03
+Subject: common lisp の case で嵌まる(はまる)
+Distribution: global
+
+(defconstant foo 3)
+
+(defun bar (x)
+  (case x
+    (foo (print 'ok))))  ; ← ココ
+
+(bar foo)
+
+case 内の foo は評価されない。
+
+C 言語の switch を考えれば、
+
+#define FOO 3
+
+int
+foo (int x)
+{
+  switch (x)
+    {
+	case FOO:
+	  printf ("OK\n");
+    }
+}
+
+ができるので、なかなか間違いに気づかなかったのだと思う。
+TA(teaching assistant) をやっていると結構勉強になる。
+でも、教えるのにそろそろ疲れた。
+alpha-beta法を分かってない人に教えるのは難しい。
+もしかすると、ただ単に私の理解が不十分なだけかもしれない。
+
+</pre><hr><pre>
+
+Date: 2002-07-03
+Subject: life: 散髪
+Distribution: global
+
+いつもと違う人がカット。
+バガボンドをどこまで読んだか忘れてる。
+今日は鎖鎌の決闘の始めまで。
+</pre><hr><pre>
+
+Date: 2002-07-02
+Subject: ann: 進化的エージェント集団の動的環境への適応
+Distribution: global
+
+佐々木貴宏, 所真理雄
+"進化的エージェント集団の動的環境への適応"
+コンピュータソフトウェア, vol.14, no.4, pp.365-378, 岩波書店, 1997 
+
+日本ソフトウェア科学会第3回(1997年度)論文賞受賞論文だけあって面白い。
+
+</pre><hr><pre>
+
 Date: 2002-07-02
 Subject: gnu, lisp, scheme: GNU 機能拡張用言語計画
 Distribution: global
@@ -77,6 +495,8 @@ Distribution: global
 受取の際に垣間見えるモスの内部に麦芽フレークを発見。
 しかも、ケロッグ。
 商品の材料なのか、それとも店員さんのおやつなのか。
+
+bug: 麦芽ではなく玄米フレークの勘違い
 
 </pre><hr><pre>
 
