@@ -2,106 +2,206 @@
  <title>cymemo</title>
 <body>
  <pre>
-Date: 2002-06-05
-Subject: debian, mozilla: FreeTypeによる東風ゴシック
+Date: 2002-06-12
+Subject: latex: moreverb: タブ &amp; 行番号対応 テキストファイルそのまま挿入
 Distribution: global
 
-mozilla において xfs-xtt による kochi-gothic はあまり美しくない。
-mozilla は FreeType に対応したらしいのでそちらで試す。
+\usepackage{moreverb}
 
-$ sudo dpkg-reconfigure mozilla-browser
+\verbatimtabinput{filename.txt}
+\listinginput[10]{1}{filename.txt}
 
-で質問に答えるだけ。
-同じフォントとは思えない程美しい。
-しかも小さい文字は埋め込みのビットマップフォントが使用されている感じ。
-でも、bold や italic がノーマルで表示されてる。
+このページの解説が素晴らしい。
+<a href="http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex2/moreverb.html">http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex2/moreverb.html</a>
 
-X のアンチエイリアシング対応はどうなったんだろ。
-/etc/X11/XF86Config-4 をのぞくと load "freetype" の記述がある。
-ってことは、どゆこと。
+このページ、大学の教授のページとは思えないほどクオリティが高い。
 
 </pre><hr><pre>
 
-Date: 2002-06-04
-Subject: ann, book: 「大人でも脳細胞は新生する」
+Date: 2002-06-12
+Subject: latex: verbatiminput: テキストファイルをそのまま取り込む
 Distribution: global
 
-「大人でも脳細胞は新生する」
-1999年8月号　日経サイエンス
+プログラムのソースや LaTeX のソースなどを
+LaTeX に取り込みたい。
 
-<a href="http://www.nikkei.co.jp/pub/science/page_2/magazine/9908/otona.html">http://www.nikkei.co.jp/pub/science/page_2/magazine/9908/otona.html</a>
-<a href="http://www.inetmie.or.jp/~kasamie/NouSaibouNIKKEI9908.html">http://www.inetmie.or.jp/~kasamie/NouSaibouNIKKEI9908.html</a>
+いままでは \begin{verbatim} を使っていたが、
+これはあまりスマートでない。そこで /usr/share/texmf を
+ひたすらして grep して見つけた。
+
+まず、プリアンブルに以下を追加。
+
+  \usepackage{verbatim}
+
+そして挿入したいところにこんな感じ。
+
+  \verbatiminput{filename.txt}
+  \verbatiminput*{filename.txt}
+
+どうも、TAB が無視されているみたい。
+希望としてはスペース8個にでも置換して欲しい。
+あと、行番号をオプションで欲しいところです。
+また、ページの終りで改ページはされるが、
+行の終りで改行がされない。
+
+Webを検索すると \verbatimlisting とか、
+\verbatimfiles なんてのもあるみたい。
 
 </pre><hr><pre>
 
-Date: 2002-06-04
-Subject: debian: mozilla で日本語入力
+Date: 2002-06-11
+Subject: emacs: 遂に bobcat を使用する
 Distribution: global
 
-$ apt-get install kinput2-wnn
-$ kinput2 &amp;
-$ export XMODIFIERS="@im=kinput2"
-$ mozilla
+;; C-h を BS に
+(load "term/bobcat")
 
-たったこれだけでできた。
-変換はスペースではなく、C-j ですか。
+これまでは以下の様にしていた。
 
-なぜか変換候補のウィンドウが別の仮想デスクトップに
-出現してしまう。これは不便。
+(define-key global-map "\C-h" 'delete-backward-char)
+(define-key isearch-mode-map "\C-h" 'isearch-delete-char)
+(eval-after-load "its"
+  '(define-key 'its-mode-map "\C-h" 'its-delete-backward-SYL))
 
-C-j は不便な気がするので
-/etc/kinput2/ccdef.kinput2 を見て修正。
+latex のモードでの C-c C-o での C-h の変更の仕方が分からなかったので、挫折。
+
+bobcat は自分のいつもの環境でないときに、
+M-x load-library "term/bobcat" とするのには便利だが、
+M-x describe-bindings の結果が一致しなくなるのが欠点。
+
+$ cat /usr/share/emacs/21.2/lisp/term/bobcat.el
+;;; HP terminals usually encourage using ^H as the rubout character
+(load "term/keyswap" nil t)
+$ head -1 /usr/share/emacs/21.2/lisp/term/keyswap.el
+;;; keyswap.el --- swap BS and DEL keys
+
+この様に bobcat.el は keyswap.el をロードしているだけで、
+keyswap.el の1行目には 「BS と DEL をスワップする」と書いてある。
+そのため、以前は DEL キーが help-command になると思っていたが
+ならないですよね、これが。
 
 </pre><hr><pre>
 
-Date: 2002-06-04
-Subject: bookmark: hirax.net できるかな？
+Date: 2002-06-11
+Subject: bookmark: 人工痴能うずら
 Distribution: global
 
-hirax.net できるかな？
-<a href="http://www.hirax.net/">http://www.hirax.net/</a>
+人工無能うずら(人工痴能)の部屋
+<a href="http://www.din.or.jp/~ohzaki/uzura.htm">http://www.din.or.jp/~ohzaki/uzura.htm</a>
+
+「うずらの会話の実例」を読んで笑っちゃいました。
 
 </pre><hr><pre>
 
-Date: 2002-06-03
-Subject: variable: ソリ型の効果はあるのか？
+Date: 2002-06-07
+Subject: cymemo: recent.html を head -200 に
 Distribution: global
 
-variable はゆりかごのように前後に揺れる。
-これは人間は同じ体勢を続けることが苦痛であるため、
-椅子に動きの要素が採り入れられているらしい。
-私はこの話を知って素晴らしいと思った。
-
-しかし、実際使ってみて思うことは「揺れない」。
-揺れると作業に支障がでるかもしれないので、
-揺れないことはいいことなのだが、予想以上に揺れない。
-これでは、肝心の体勢の変化に役立っていないのでは
-ないかと気になるほどだ。
-
-自然とは揺れないが意識的にはつい揺らしてしまう。
-前後に揺らし過ぎて後ろに倒れそうに
-なって血の気が引いたことは何度かある。
-このような意識的な揺らしが体勢の変化なのだろうか。
+100行では多い日は1日分しか入らない入らないので、200行にしてみた。
 
 </pre><hr><pre>
 
-Date: 2002-06-01
-Subject: emacs: どのようにして私ははまったか
+Date: 2002-06-07
+Subject: 広島三大祭: とうかさん
 Distribution: global
 
-記憶を頼りに私と Emacs について記す。
+学内で浴衣姿の人をみて思い出す。
+そうか、6月の第1金曜日なのか。
+しかし、大学で浴衣とは気合いの入った人もいるもんだ。
+1年生かな。
 
-emacs との出会いは大学の1年の「一般情報処理B」である。
-今からほぼ4年前、18歳のときである。
-演習で mule を使うから、それを使い始めた。
-先生は私に emacsen を使うか、それとも vi を使うかという
-点に関しては教えてくれなかった。
+* もともとは10日（とうか）にしていたらしい
+* 1619年、浅野長晟公が「圓隆寺」を建立以来380年の歴史
+* 富くじが違法で中止に
 
-emacs にはまる第1ステップは、BS, RET, 矢印キーを
-使わなくなったことだ。
-これはいつ頃だろうか？多分2年のときだろう。
-3年になって IRIX を使えるようになり私が真っ先に
-したのが Caps を Ctrl にすることだったから。
+</pre><hr><pre>
+
+Date: 2002-06-07
+Subject: tv: 対論 再生可能エネルギーと私たちの未来
+Distribution: global
+
+昨夜はニュースステーションがお休みだったので、
+教育テレビを観た。
+
+シリーズ 自然エネルギーへの模索 第2回
+「対論 再生可能エネルギーと私たちの未来」
+出演 ヨアン・S・ノルゴー(デンマーク工科大学教授)
+     内橋克人(経済評論家)
+
+* マスコミによる国民の経済成長への信仰
+* お金か時間か
+* 人口の減少は持続可能社会において重要
+
+番組は途中から観たが、最近考えるテーマと一致して
+興味津々に最後まで観た。
+
+</pre><hr><pre>
+
+Date: 2002-06-07
+Subject: variable: 使用開始から3カ月
+Distribution: global
+
+長時間、前のほうに座ると腰がそり過ぎて痛くなることがある。
+その時は少し後ろに座る。
+
+最近は行儀が悪い。
+座ってしばらくするとすねを載せるところに足を載せてしまう。
+
+</pre><hr><pre>
+
+Date: 2002-06-07
+Subject: fvwm: AutoRaise を止めてみる
+Distribution: global
+
+昨日から AutoRaise を止めにしてみた。
+これはマウスカーソルの下のウィンドウが自動的に
+最前に出てくるアレです。
+
+この変更にともないキーボードでのウィンドウ切替えも
+従来の設定ではうまくいかなくなったので、変更。
+これが大変だった。
+ただ単に私が .fvwm2rc の文法などをちゃんと
+勉強していないだけなのだが、
+これで苦労するたびに fvwm を捨てたくなる。
+
+候補として考えているもの
+
+ scwm: scheme で設定をいじれるのがいい。
+       でも、以前試した時は異常に遅かった。
+       fvwm の軽さは捨て難い。
+
+ sawfish: とりあえず lisp でいじれるらしい。
+          gnome なしはいい感じなのだろうか？
+          仮想デスクトップはほしい。
+
+</pre><hr><pre>
+
+Date: 2002-06-07
+Subject: 朝食: ケッログで快腸
+Distribution: global
+
+朝のお通じの際、自分の体調の変化に気づく。
+腸の調子がいい。
+これまで食べたのは玄米フレーク2箱と
+おとついから食べているオールブランである。
+スットクのコーンフレークの箱を見ると、
+2週間でお腹の調子がよくなると書かれている。
+まさにその通りである。食物繊維のおかげかな。
+
+しかし、このオールブランの味がどうも私に合わない。
+玄米フレークも決しておいしいとは思わなかったが、
+これはさらに宇宙食度が増している。
+でも、これは食物繊維の多い商品のようだし、
+まずいというだけでは捨て難い。
+
+</pre><hr><pre>
+
+Date: 2002-06-06
+Subject: bookmark: 富豪的プログラミング
+Distribution: global
+
+「富豪的プログラミング」
+<a href="http://www.csl.sony.co.jp/person/masui/fugo.html">http://www.csl.sony.co.jp/person/masui/fugo.html</a>
  </pre>
 </body>
 </html>
