@@ -2,6 +2,218 @@
  <title>cymemo</title>
 <body>
  <pre>
+Date: 2002-06-05
+Subject: debian, mozilla: FreeTypeによる東風ゴシック
+Distribution: global
+
+mozilla において xfs-xtt による kochi-gothic はあまり美しくない。
+mozilla は FreeType に対応したらしいのでそちらで試す。
+
+$ sudo dpkg-reconfigure mozilla-browser
+
+で質問に答えるだけ。
+同じフォントとは思えない程美しい。
+しかも小さい文字は埋め込みのビットマップフォントが使用されている感じ。
+でも、bold や italic がノーマルで表示されてる。
+
+X のアンチエイリアシング対応はどうなったんだろ。
+/etc/X11/XF86Config-4 をのぞくと load "freetype" の記述がある。
+ってことは、どゆこと。
+
+</pre><hr><pre>
+
+Date: 2002-06-04
+Subject: ann, book: 「大人でも脳細胞は新生する」
+Distribution: global
+
+「大人でも脳細胞は新生する」
+1999年8月号　日経サイエンス
+
+<a href="http://www.nikkei.co.jp/pub/science/page_2/magazine/9908/otona.html">http://www.nikkei.co.jp/pub/science/page_2/magazine/9908/otona.html</a>
+<a href="http://www.inetmie.or.jp/~kasamie/NouSaibouNIKKEI9908.html">http://www.inetmie.or.jp/~kasamie/NouSaibouNIKKEI9908.html</a>
+
+</pre><hr><pre>
+
+Date: 2002-06-04
+Subject: debian: mozilla で日本語入力
+Distribution: global
+
+$ apt-get install kinput2-wnn
+$ kinput2 &amp;
+$ export XMODIFIERS="@im=kinput2"
+$ mozilla
+
+たったこれだけでできた。
+変換はスペースではなく、C-j ですか。
+
+なぜか変換候補のウィンドウが別の仮想デスクトップに
+出現してしまう。これは不便。
+
+C-j は不便な気がするので
+/etc/kinput2/ccdef.kinput2 を見て修正。
+
+</pre><hr><pre>
+
+Date: 2002-06-04
+Subject: bookmark: hirax.net できるかな？
+Distribution: global
+
+hirax.net できるかな？
+<a href="http://www.hirax.net/">http://www.hirax.net/</a>
+
+</pre><hr><pre>
+
+Date: 2002-06-03
+Subject: variable: ソリ型の効果はあるのか？
+Distribution: global
+
+variable はゆりかごのように前後に揺れる。
+これは人間は同じ体勢を続けることが苦痛であるため、
+椅子に動きの要素が採り入れられているらしい。
+私はこの話を知って素晴らしいと思った。
+
+しかし、実際使ってみて思うことは「揺れない」。
+揺れると作業に支障がでるかもしれないので、
+揺れないことはいいことなのだが、予想以上に揺れない。
+これでは、肝心の体勢の変化に役立っていないのでは
+ないかと気になるほどだ。
+
+自然とは揺れないが意識的にはつい揺らしてしまう。
+前後に揺らし過ぎて後ろに倒れそうに
+なって血の気が引いたことは何度かある。
+このような意識的な揺らしが体勢の変化なのだろうか。
+
+</pre><hr><pre>
+
+Date: 2002-06-01
+Subject: emacs: どのようにして私ははまったか
+Distribution: global
+
+記憶を頼りに私と Emacs について記す。
+
+emacs との出会いは大学の1年の「一般情報処理B」である。
+今からほぼ4年前、18歳のときである。
+演習で mule を使うから、それを使い始めた。
+先生は私に emacsen を使うか、それとも vi を使うかという
+点に関しては教えてくれなかった。
+
+emacs にはまる第1ステップは、BS, RET, 矢印キーを
+使わなくなったことだ。
+これはいつ頃だろうか？多分2年のときだろう。
+3年になって IRIX を使えるようになり私が真っ先に
+したのが Caps を Ctrl にすることだったから。
+このころは Ctrl + (1文字) の組合せ闇雲に押して勉強した。
+C-t が条件付けられたのもこの時代である。
+C-t よく思いついたもんんだ。別になくてもいい C-t。
+
+この時代について詳しく述べる。
+体はすでに emacs しか受け付けなくなっていた。
+BS の代わりの C-h などはほぼ無意識に押した。
+家の PC では win が linux にリプレイスされた。
+しかし、私は emacs にはまっていなかった。
+それは、「emacsから出ない」が理解できなかったのだ。
+emacsユーザはemacsから出ようとしない。すべてを
+emacs内で完結させようとする。
+この話は知っていたが、私はすべてを emacs でしたいとは
+思っていなかった。
+なぜなら、もしもそうしてしまうと頻繁にバッファを
+切替えなくてはならないからだ。
+そう、私はバッファの切替が嫌いだった。
+そのためそのころに使っていた MUA は sylpheed だった。
+EBView や netscape を愛用し、マウスでさばいていた。
+この時代が長かった。
+
+転機が訪れたのは、4年のときだった。
+4年になって navi2ch を知り、それまでやや避けていた
+2ch.net にはまってしまった。
+その日もいつの通り日課となった2chのチェックを
+していたことだろう。そこで出会ったのが、
+「自慢の.emacsを貼り付けよう」[*1]だった。
+そこで以下に出会った。
+
+  ;;C-x bでbuffersを選ぶ時便利
+  (iswitchb-default-keybindings)
+
+それまでのバッファ切替えの悩みに対する解決だった。
+その後 electric-buffer-list とも出会った。
+水を得た魚では例えがおかしいが、その後は
+坂道を転がり落ちるように emacs にはまった。
+MUA が wl に代わるのは時間の問題だった。
+何しろ、emacs でメールを書きたいと思っていたのだから。
+emacs にはまったのだからと elisp も勉強を始めた。
+ふと計算したいときは *scratch* を関数電卓として使いだした。
+
+  ;; electric-bufffer-list
+  (define-key global-map "\C-x\C-b" 'electric-buffer-list)
+  (add-hook 'electric-buffer-menu-mode-hook 'forward-line)
+
+今では上の様にして、これを頻繁に使っている。
+現在愛用の elisp は wl の他に lookup, emacs-w3m, migemo,
+navi2ch である。
+
+
+[*1]自慢の.emacsを貼り付けよう
+   <a href="http://pc.2ch.net/test/read.cgi/unix/1001393679/">http://pc.2ch.net/test/read.cgi/unix/1001393679/</a>
+
+</pre><hr><pre>
+
+Date: 2002-06-01
+Subject: メモ: 何をメモるか？
+Distribution: global
+
+[2002-05-25]の椅子について書く時、私のこの椅子についての
+考えがどのように変わったかを思い出そうとした。
+また、どのように私は Emacs にはまっていったのか、
+その間の私の考え方の変遷(へんせん)を知りたくなった。
+
+当時、日記をつけっていたわけでもないので、
+記憶にたよるしかない。
+しかし、つけていたとしてもそのことについて書いて
+いなかったかもしれない。
+
+では何を記録するとあとでうれしいのか？
+未来のことは分からないので、思ったこと感じたことを書くしかないか。
+
+</pre><hr><pre>
+
+Date: 2002-05-31
+Subject: cymemo: recent.html のつくる
+Distribution: global
+
+head -100 にて recent.html を設ける。
+手抜きである。
+
+</pre><hr><pre>
+
+Date: 2002-05-31
+Subject: fvwm, bookmark: M+ WORK SPACE 日本語12ptフォント
+Distribution: global
+
+デザイナーの方がfvwmのスタイルと日本語12ptフォントを
+作成されている模様。
+
+M+ WORK SPACE
+<a href="http://www-3.xdsl.ne.jp/~coz/comp/mplus/">http://www-3.xdsl.ne.jp/~coz/comp/mplus/</a>
+<a href="http://www-3.xdsl.ne.jp/~coz/comp/mplus/j-fonts/">http://www-3.xdsl.ne.jp/~coz/comp/mplus/j-fonts/</a>
+
+xclock -d って、こんなにかっこよかったんだ。
+
+</pre><hr><pre>
+
+Date: 2002-05-29
+Subject: ann, bookmark: 小脳パーセプトロン論の反論
+Distribution: global
+
+小脳パーセプトロン論には異論があるようだ。
+
+<a href="http://jhfsp.jsf.or.jp/news/letter/no13/nl-brain.html">http://jhfsp.jsf.or.jp/news/letter/no13/nl-brain.html</a>
+
+  議論が長く続いて来たのには理由がある。登上線維の信号は極めてまれにしか
+  生じないのだ。腕の運動中には平均して１Hz未満でしかなく、学習を進めるべ
+  き運動中にはほとんど発火しないという報告すらある。
+
+</pre><hr><pre>
+
 Date: 2002-05-29
 Subject: debian, linux: apm で電源が切れない
 Distribution: global
