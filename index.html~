@@ -54,14 +54,14 @@
  <li>MyD --- A dictionary look up program for POSIX<br>
  MyD uses <a href="http://www-nagao.kuee.kyoto-u.ac.jp/member/tsuchiya/sdic/data/gene.html">
  GENE general English-Japanese dictionary</a>.
- GENE is compiled by Kurumi-san, and free to use financially. Thanks to Kurumi-san.
+ GENE is compiled by Kurumi-san, and free to use financially.
  MyD was moved to
  <a href="http://www.vector.co.jp/soft/unix/writing/se161530.html">vector.co.jp</a>.</li>
 
  <li>dessed (DEcode SystemSoft Electronic Dictionary)<br>
  dessed was moved to
  <a href="http://homepage2.nifty.com/EBTools/dessed/">dessed official site</a>.
-  Thanks to <a href="http://plaza3.mbn.or.jp/~h_ishida/">hishida-san</a>.</li>
+  Thank you, <a href="http://plaza3.mbn.or.jp/~h_ishida/">hishida-san</a>.</li>
 
  <li><a href="misc/">misc</a></li>
 

@@ -1,0 +1,137 @@
+
+SSN_DB01
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:1] NAME = "SN1" DESC = "総合辞書" BLOCKSIZE = (4096, 16384)
+	[ITEM:1] NAME = "SORT_ORDER" DESC = "Order" TYPE = Number LENGTH = 16
+	[ITEM:2] NAME = "項目ID" DESC = "ID" TYPE = String LENGTH = 16
+	[ITEM:3] NAME = "項目名" DESC = "NAME" TYPE = String LENGTH = 255
+	[ITEM:4] NAME = "項目名よみ" DESC = "よみ" TYPE = String LENGTH = 255
+	[ITEM:5] NAME = "項目名＿現地よみ" DESC = "現地よみ" TYPE = String LENGTH = 255
+	[ITEM:6] NAME = "項目名＿漢字表記" DESC = "漢字表記" TYPE = String LENGTH = 255
+	[ITEM:7] NAME = "項目名＿学名" DESC = "学名" TYPE = String LENGTH = 255
+	[ITEM:8] NAME = "項目名＿外国語表記" DESC = "外国語表記" TYPE = String LENGTH = 255
+	[ITEM:9] NAME = "項目名＿外国語表記言語名" DESC = "外国語表記言語名" TYPE = String LENGTH = 255
+	[ITEM:10] NAME = "生没名" DESC = "生没名" TYPE = String LENGTH = 255
+	[ITEM:11] NAME = "項目名＿キリル文字表記" DESC = "キリル文字表記" TYPE = Text LENGTH = 512
+	[ITEM:12] NAME = "項目名＿ラテン文字表記" DESC = "ラテン文字表記" TYPE = String LENGTH = 255
+	[ITEM:13] NAME = "関連項目" DESC = "関連項目" TYPE = Text LENGTH = 1024
+	[ITEM:14] NAME = "関連書籍" DESC = "関連書籍" TYPE = Text LENGTH = 2048
+	[ITEM:15] NAME = "関連資料" DESC = "関連資料" TYPE = Text LENGTH = 255
+	[ITEM:16] NAME = "関連年表" DESC = "関連年表" TYPE = Text LENGTH = 255
+	[ITEM:17] NAME = "分類情報" DESC = "分野別情報" TYPE = String LENGTH = 10
+	[KEY:2] NAME = "項目ID" DESC = "項目ID" TYPE = String BIND = [2]
+	[KEY:3] NAME = "項目名" DESC = "項目名" TYPE = "String,Reverse" BIND = [3]
+	[KEY:4] NAME = "項目名よみ" DESC = "項目名よみ" TYPE = "String,Reverse" BIND = [4]
+	[KEY:5] NAME = "項目名＿現地よみ" DESC = "現地よみ" TYPE = "String,Reverse" BIND = [5]
+	[KEY:6] NAME = "項目名＿漢字表記" DESC = "漢字表記" TYPE = "String,Reverse" BIND = [6]
+	[KEY:7] NAME = "項目名＿学名" DESC = "学名" TYPE = "String,Reverse" BIND = [7]
+	[KEY:8] NAME = "項目名＿外国語表記" DESC = "外国語表記" TYPE = "String,Reverse" BIND = [8]
+	[KEY:17] NAME = "分類情報" DESC = "分野別情報" TYPE = String BIND = [17]
+[FILE:11] NAME = "URL" DESC = "URL検索" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "ID" DESC = "ID" TYPE = Number LENGTH = 16
+	[ITEM:2] NAME = "項目ID" DESC = "項目ID" TYPE = String LENGTH = 16
+	[ITEM:3] NAME = "NAME" DESC = "項目名" TYPE = String LENGTH = 255
+	[ITEM:4] NAME = "URL" DESC = "URL" TYPE = String LENGTH = 255
+	[KEY:2] NAME = "項目ID" DESC = "項目ID" TYPE = String BIND = [2]
+[FILE:21] NAME = "T関連資料" DESC = "関連資料" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "項目ID" DESC = "項目ID" TYPE = String LENGTH = 16
+	[ITEM:2] NAME = "NAME" DESC = "項目名" TYPE = String LENGTH = 255
+	[ITEM:3] NAME = "TEXT" DESC = "テキスト" TYPE = Text LENGTH = 2048
+	[KEY:1] NAME = "項目ID" DESC = "項目ID" TYPE = String BIND = [1]
+
+SSN_DB02
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:101] NAME = "TEXTDAT" DESC = "百科事典本文" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "ID" DESC = "ID" TYPE = String LENGTH = 16
+	[ITEM:2] NAME = "TEXT" DESC = "本文" TYPE = Text LENGTH = 4000
+	[KEY:1] NAME = "ID" DESC = "ID" TYPE = String BIND = [1]
+[FILE:111] NAME = "INLINE" DESC = "インライン画像" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "Inline" DESC = "TEXT_Inline" TYPE = String LENGTH = 16
+	[ITEM:2] NAME = "File-Name" DESC = "NAME" TYPE = String LENGTH = 64
+	[ITEM:3] NAME = "DateTime" DESC = "DateTime" TYPE = DateTime LENGTH = 32
+	[ITEM:4] NAME = "File" DESC = "Inline" TYPE = GIF LENGTH = 3036
+	[KEY:1] NAME = "Inline" DESC = "TEXT_Inline" TYPE = String BIND = [1]
+	[KEY:2] NAME = "File-Name" DESC = "NAME" TYPE = String BIND = [2]
+
+SSN_DB03
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:201] NAME = "KOKIDX" DESC = "国語辞典インデックス" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "ID" DESC = "ID" TYPE = Number LENGTH = 8
+	[ITEM:2] NAME = "IDX" DESC = "IDX" TYPE = String LENGTH = 16
+	[ITEM:3] NAME = "NAME" DESC = "名前" TYPE = String LENGTH = 255
+	[ITEM:4] NAME = "TITLE" DESC = "タイトル" TYPE = String LENGTH = 255
+	[KEY:3] NAME = "NAME" DESC = "名前" TYPE = String BIND = [3]
+
+SSN_DB04
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:202] NAME = "KOKDAT" DESC = "国語辞典" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "IDX" DESC = "IDX" TYPE = String LENGTH = 16
+	[ITEM:2] NAME = "TEXT" DESC = "本文" TYPE = Text LENGTH = 2048
+	[KEY:1] NAME = "IDX" DESC = "IDX" TYPE = String BIND = [1]
+
+SSN_DB06
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:401] NAME = "NP_Index" DESC = "本文構成" BLOCKSIZE = (1024, 1024)
+	[ITEM:1] NAME = "IDL" TYPE = Number LENGTH = 8
+	[ITEM:2] NAME = "NP_ID" DESC = "年表ID" TYPE = String LENGTH = 32
+	[ITEM:3] NAME = "DATA_Class" DESC = "種類" TYPE = String LENGTH = 32
+	[ITEM:4] NAME = "DATA" DESC = "注釈" TYPE = String LENGTH = 255
+	[ITEM:5] NAME = "ID" DESC = "Index" TYPE = Number LENGTH = 4
+	[KEY:2] NAME = "NP_ID" TYPE = String BIND = [2]
+	[KEY:3] NAME = "DATA" TYPE = String BIND = [3]
+[FILE:451] NAME = "NP_DATA" DESC = "年表" BLOCKSIZE = (2048, 2048)
+	[ITEM:1] NAME = "IDL" TYPE = Number LENGTH = 8
+	[ITEM:2] NAME = "ID" DESC = "Index" TYPE = Number LENGTH = 4
+	[ITEM:3] NAME = "NP_ID" DESC = "年表ID" TYPE = String LENGTH = 32
+	[ITEM:4] NAME = "SEARCH" DESC = "検索年" TYPE = Number LENGTH = 8
+	[ITEM:5] NAME = "BC" DESC = "紀元前" TYPE = String LENGTH = 255
+	[ITEM:6] NAME = "YEAR" DESC = "年代" TYPE = String LENGTH = 255
+	[ITEM:7] NAME = "M_D" DESC = "月日" TYPE = String LENGTH = 255
+	[ITEM:8] NAME = "EVENT" DESC = "主な事件" TYPE = String LENGTH = 255
+	[ITEM:9] NAME = "TEXT" DESC = "文章" TYPE = Text LENGTH = 512
+	[ITEM:10] NAME = "MEDIA" DESC = "メディア" TYPE = String LENGTH = 255
+	[KEY:2] NAME = "ID" TYPE = Number BIND = [2]
+	[KEY:3] NAME = "NP_ID" TYPE = String BIND = [3]
+	[KEY:4] NAME = "SEARCH" TYPE = Number BIND = [4]
+
+SSN_DB07
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:502] NAME = "MEDIA_LE" DESC = "メディアインデックスLE" BLOCKSIZE = (2048, 2048)
+	[ITEM:1] NAME = "ID" DESC = "ID" TYPE = Number LENGTH = 8
+	[ITEM:2] NAME = "MEDIAID" DESC = "メディアID" TYPE = String LENGTH = 16
+	[ITEM:3] NAME = "CLASS" DESC = "識別" TYPE = Number LENGTH = 4
+	[ITEM:4] NAME = "M_BUNID" DESC = "メディア分類ID" TYPE = Number LENGTH = 4
+	[ITEM:5] NAME = "DISC" DESC = "ディスク" TYPE = String LENGTH = 4
+	[ITEM:6] NAME = "M_NAME" DESC = "メディア名" TYPE = String LENGTH = 255
+	[ITEM:7] NAME = "M_YOMI" DESC = "メディア名よみ" TYPE = String LENGTH = 255
+	[ITEM:8] NAME = "AID_ID" DESC = "絶対ID" TYPE = String LENGTH = 255
+	[ITEM:9] NAME = "MID1" DESC = "メディアID1" TYPE = String LENGTH = 32
+	[ITEM:10] NAME = "MID2" DESC = "メディアID2" TYPE = String LENGTH = 32
+	[ITEM:11] NAME = "THUNBNAIL" DESC = "サムネール" TYPE = String LENGTH = 16
+	[ITEM:12] NAME = "CAPTION" DESC = "キャプション" TYPE = Text LENGTH = 1536
+	[ITEM:13] NAME = "CREDIT" DESC = "クレジット" TYPE = String LENGTH = 255
+	[ITEM:14] NAME = "BUN_ID" DESC = "大分類ID" TYPE = Number LENGTH = 4
+	[ITEM:15] NAME = "KOUMOKU_ID" DESC = "項目ID" TYPE = String LENGTH = 16
+	[KEY:2] NAME = "MEDIAID" TYPE = String BIND = [2]
+	[KEY:4] NAME = "M_BUNID" TYPE = Number BIND = [4]
+	[KEY:6] NAME = "M_NAME" TYPE = String BIND = [6]
+	[KEY:7] NAME = "M_YOMI" TYPE = String BIND = [7]
+	[KEY:8] NAME = "AID_ID" TYPE = String BIND = [8]
+	[KEY:9] NAME = "MID1" TYPE = String BIND = [9]
+	[KEY:10] NAME = "MID2" TYPE = String BIND = [10]
+	[KEY:14] NAME = "BUN_ID" TYPE = Number BIND = [14]
+	[KEY:15] NAME = "KOUMOKU_ID" TYPE = String BIND = [15]
+
+SSN_DB08
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:551] NAME = "SOCIETY" DESC = "社会・文化" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "FileName" DESC = "NAME" TYPE = String LENGTH = 64
+	[ITEM:2] NAME = "File" DESC = "File" TYPE = File LENGTH = 5000
+	[KEY:1] NAME = "FileName" DESC = "NAME" TYPE = "String,IgnoreCase" BIND = [1]
+
+SSN_DB09
+[DATABASE:0] NAME = "SSN" DESC = "nipponica"
+[FILE:552] NAME = "NATURE" DESC = "自然・科学" BLOCKSIZE = (4096, 4096)
+	[ITEM:1] NAME = "FileName" DESC = "NAME" TYPE = String LENGTH = 64
+	[ITEM:2] NAME = "File" DESC = "File" TYPE = File LENGTH = 5000
+	[KEY:1] NAME = "FileName" DESC = "NAME" TYPE = "String,IgnoreCase" BIND = [1]
