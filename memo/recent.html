@@ -2,6 +2,140 @@
  <title>cymemo</title>
 <body>
  <pre>
+Date: 2002-07-30
+Subject: 漢字変換の四角号碼辞書
+Distribution: global
+
+Atok13用の四角号碼 (しかくごうま) 辞書、テキスト形式もあり
+<a href="http://www.iijnet.or.jp/iriz/data_folder/input_j.html">http://www.iijnet.or.jp/iriz/data_folder/input_j.html</a>
+
+漢和字典や四角号碼で検索すると新たな発見が多い。メモメモ。
+
+</pre><hr><pre>
+Date: 2002-07-30
+Subject: memo, idea: 日々の差分によるメモ
+Distribution: global
+
+RCS などでファイルを管理して日々の差分を 20020730.diff のように
+日付のファイル名で残していくメモ。
+
+例えば、~/doc/memo, ~/.emacs.el, ~/doc/bookmark.html の3つのファイルを
+RCSで管理するとする。
+.emacs.el を今日編集すればその差分が記録される。
+URLをbookmark.htmlに追加すれば、その編集の差分が記録される。
+その差分を procmail に通して MUA で管理するなんてのはどうだろう。
+
+メリットとしては
+
+ * Emacs の既存のメジャーモードが利用できる。 (outline, elisp, html など)
+ * 時系列の記録 (.diff ファイルの cat) とモノが残る。
+    (.emacs.el, bookmark.html はそれぞれ機能する。)
+
+デメリット
+
+ * RCS, CVS, BrowseCVS そのものでいいのではないか？
+ * 秘密機能を組み込みにくい。
+ * 時系列データ(.diffの連結)が見にくい
+     o diff 形式
+     o 前後3行が不要なことが多いだろう
+ * 過去の .diff が修正できない
+
+</pre><hr><pre>
+Date: 2002-07-30
+Subject: book, bookmark: (コ)の業界のオキテ
+Distribution: global
+
+(コ)の業界のオキテ
+<a href="http://www.pro.or.jp/~fuji/mybooks/okite/">http://www.pro.or.jp/~fuji/mybooks/okite/</a>
+藤原博文, 技術評論社
+
+1冊まるごと www で読めるようだ。
+絶版ということもあって、もう7年も前の話。
+プログラマの半分は薮(やぶ)プログラマだそうな。
+
+</pre><hr><pre>
+Date: 2002-07-29
+Subject: ネットの漢和字典を探す
+Distribution: global
+
+紙の文章を読んでしまうと分からない漢字で困ってしまう。
+
+
+漢字検索プログラム『漢楽街』 by 藤原博文さん
+<a href="http://www.pro.or.jp/~fuji/japanese/kanrakugai.html">http://www.pro.or.jp/~fuji/japanese/kanrakugai.html</a>
+
+コンパイルの仕方がわからん。
+と、思ったら、
+
+部品で漢字を検索
+<a href="http://www.tulips.tsukuba.ac.jp/misc/export/cat/kanparts/">http://www.tulips.tsukuba.ac.jp/misc/export/cat/kanparts/</a>
+
+上のページで間接的に利用できるようだ。
+
+
+「KANJIDIC」 by J.W. Breenさん
+<a href="http://www.vector.co.jp/soft/data/writing/se021484.html">http://www.vector.co.jp/soft/data/writing/se021484.html</a>
+
+gjiten
+<a href="http://gjiten.sourceforge.net/index.ja.php">http://gjiten.sourceforge.net/index.ja.php</a>
+上のデータを利用する。
+
+</pre><hr><pre>
+Date: 2002-07-29
+Subject: book: やっぱり, Lispだね
+Distribution: global
+
+「やっぱり, Lispだね」
+竹内郁雄
+bit, Vol. 32, No. 5, pp. 33-39, 2000.
+
+ * Lisp の誕生日は1958年10月21日と勝手に決めた
+ * 師: 「えっ、カッコ? あ、そうか。そんなものもあったな。
+         いやあ、すっかり忘れておったわ」
+ * 東大の岩崎英哉さんは TeX コマンドを S式にした 
+
+</pre><hr><pre>
+Date: 2002-07-27
+Subject: emacs, scheme: run-scheme で show-paren-mode
+Distribution: global
+
+inferior-scheme-mode-hook を使って M-x run-scheme した時に
+show-paren-mode にしようと思ったが、
+このフックは run-hooks されていない。意味無いじゃん。
+
+(defadvice inferior-scheme-mode (after run-hook compile)
+  (run-hooks 'inferior-scheme-mode-hook))
+
+それと、この *scheme* バッファを殺しても、gosh のプロセスが死なない。
+gosh を (exit) してから C-x k すればとりあえずはいい。
+これについては後日調査しよう。
+
+google すると、どうも XEmacs はちゃんと run-hooks している気がする。
+こういうときは XEmacs を調べる必要があるのかもしれないな。
+そろそろインストールしてみるか、後日。
+
+</pre><hr><pre>
+Date: 2002-07-26
+Subject: debian: gif対応 Emacs21 のつづき
+Distribution: global
+
+自作パッケージをインストールした後、apt-get upgrade で emacs が
+更新されてしまいそうなのは、
+debchange していないためのようです。
+
+<a href="http://emacs-w3m.namazu.org/ml/msg02266.html">http://emacs-w3m.namazu.org/ml/msg02266.html</a>
+
+    % apt-get install libungif4g libungif4-dev
+    % apt-get source emacs21
+    % cd emacs21-21.1
+    % debchange -i
+    % dpkg-buildpackage -us -uc -rfakeroot
+
+私は土屋さんの折角のアドバイスを無駄にしていました。すみません。
+
+実際に試して見るのは、また今度。
+
+</pre><hr><pre>
 Date: 2002-07-25
 Subject: debian: gif 対応 xim非対応 emacs21 を作る
 Distribution: global
@@ -267,166 +401,6 @@ Distribution: global
 2002年 PRMU研究会
 アルゴリズムコンテスト
 <a href="http://yokoya.aist-nara.ac.jp/prmu02/">http://yokoya.aist-nara.ac.jp/prmu02/</a>
-
-</pre><hr><pre>
-Date: 2002-07-15
-Subject: emacs: query-replace-regexp-eval
-Distribution: global
-
-M-x query-replace-regexp-eval
-
-正規表現にマッチした文字列を S式 の評価後の
-文字列もしくは値に置換する。
-
-便利な変数として、replace-count や \&amp;, \0, \1, \#&amp;, \#0, \#, \#1 などが
-用意されている。
-
-[2002-07-05]の連番に使えそう。
-
-</pre><hr><pre>
-Date: 2002-07-13
-Subject: bookmark, scheme: scheme + prolog = Schelog 
-Distribution: global
-
-Schelog
-<a href="http://www.ccs.neu.edu/home/dorai/schelog/schelog.html">http://www.ccs.neu.edu/home/dorai/schelog/schelog.html</a>
-
-<a href="http://www.ccs.neu.edu/home/dorai/">http://www.ccs.neu.edu/home/dorai/</a>
-この方、TeX2page や pregexp も作ってらっしゃる。
-
-</pre><hr><pre>
-Date: 2002-07-13
-Subject: prolog で切符問題の問題点
-Distribution: global
-
-昨日の prolog は、足し算を
-
-  ticket(Ans, [A, B], [A, '+', B]) :- Ans is A + B.
-
-このように定義するとスマートだ。
-さらに可換可能を、
-
-  ticket(Ans, [A, B], [A, '+', B]) :- Ans is B + A.
-
-と表せますね。
-
-さらに、単項マイナスを考えていなかった。
-しかし、これを含めると解が無限になるな。
-
-さらに、有理数のことも全然考えていない。
-prolog に有理数のライブラリが見つからないので
-もうあきらめよ。
-
-ところで、「切符問題」は英語でなんというのですか？
-検索しても見つからない。
-外人さんはこのクイズは知らないのかな。
-でも、河合さんはハワイの中華料理店で話題になったくらいだし。
-
-</pre><hr><pre>
-Date: 2002-07-12
-Subject: prolog で切符問題
-Distribution: global
-
-以前、gaucheの河合さんの日記を発端に一部のWeb日記界で
-話題になっていた切符問題を、折角取った prolog のきねづかに
-prolog で解いてみた。
-
-<a href="http://namazu.org/~satoru/diary/?200112b&amp;to=200112121#200112121">http://namazu.org/~satoru/diary/?200112b&amp;to=200112121#200112121</a>
-<a href="http://www.sampou.org/nobsun/journal/?200112b&amp;to=200112161#200112161">http://www.sampou.org/nobsun/journal/?200112b&amp;to=200112161#200112161</a>
-<a href="http://www.lava.net/~shiro/Private/diary/0112.html">http://www.lava.net/~shiro/Private/diary/0112.html</a>
-
-------
-split([], [], []).
-split([N|Ns], [N|N1], N2) :- split(Ns,N1,N2).
-split([N|Ns], N1, [N|N2]) :- split(Ns,N1,N2).
-
-ticket(Goal, [Goal], Goal).
-ticket(Goal, Ns, Ans) :- 
-    split(Ns, N1, N2), 
-    N1 \== [], N2 \== [],
-    ticket(G1, N1, A1), ticket(G2, N2, A2),
-    op(G1, G2, Goal, Op), Ans = [A1,Op,A2].
-
-op(X, Y, Ans, '+') :- Ans is X + Y.
-op(X, Y, Ans, '-') :- Ans is X - Y.
-op(X, Y, Ans, '*') :- Ans is X * Y.
-op(X, Y, Ans, '/') :- Y =\= 0, Ans is X / Y.
-------
-
-?- ticket(24, [1,3,4,6], Ans).
-
-Ans = [6, /, [1, -, [3, /, 4]]] ;
-
-これが答え。通りで、私には解けない訳です。
-この問題はみなさんはまったみたいだけど、
-私もかなりはまった。
-- と / が交換できないなどなど、全然考慮していなかった。
-かまりムキになっていた。
-
-しかし、この短さはすごい。
-prolog にはまってしまうかも。
-
-</pre><hr><pre>
-Date: 2002-07-12
-Subject: bookmark: 自分の referer をチェックできるページ
-Distribution: global
-
-<a href="http://www.cgihost.com/cgi-bin/env.cgi">http://www.cgihost.com/cgi-bin/env.cgi</a>
-<a href="http://www.univie.ac.at/cgi-demo/env.html">http://www.univie.ac.at/cgi-demo/env.html</a>
-<a href="http://www.cgi101.com/class/ch3/env.cgi">http://www.cgi101.com/class/ch3/env.cgi</a>
-
-w3m-add-referer なる変数に doc-string がついていない。
-もしや、私はリファラを送っていたのか？と不安になり、
-調べたくなった。
-
-リファラくらいケチらずに教えてあげればいいのに、
-と自分でも思ってはいる。
-
-</pre><hr><pre>
-Date: 2002-07-12
-Subject: bugfix, debian, emacs: emacs21-el にソースあり
-Distribution: global
-
-[2002-05-10]で無知をさらしてしまいました。
-
-emacs21-el ってパッケージがまさにそれでした。
-
-これで、describe-function (C-h f), finder-by-keyword (C-h p) も
-快適にソースへと飛ぶことができました。
-
-変なことを言ってしまってごめんなさい。 &gt; debian
-
-</pre><hr><pre>
-Date: 2002-07-12
-Subject: bookmark, 言葉: 京ことばの音韻
-Distribution: global
-
-またの日本語の話。
-「原因」が「げいいん」で漢字変換できないことで、
-検索を思い立つ。
-
-京ことばの音韻
-<a href="http://www.aurora.dti.ne.jp/~zom/Kyo-to/on-in.html">http://www.aurora.dti.ne.jp/~zom/Kyo-to/on-in.html</a>
-
-  原因          →  げいいん
-  じゃんけん    →  じゃいけん
-  雰囲気        →  ふいんき
-
-そうか、私の言葉の一部は京ことばなんだ。
-
-私は他にも、
-
-店員          →  ていいん or てんいん
-体育          →  たいく
-全員          →  ぜいいん or ぜーいん or ぜんいん
-
-すべてこの規則でなく、
-
-どんかん、てんかん、さんかんび、とんちんかん、ちゃんりんしゃん、
-ぜんせん、ぐんかん、びんかん、せんいん、
-
-などなど。普通に発音する。規則が分からない。
-規則があるとするなら、周りの人がどう発音しているかってことでしょう。
 
 </pre><hr><pre>
  </pre>
